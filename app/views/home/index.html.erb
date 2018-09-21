@@ -73,17 +73,16 @@
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.7);">
         <h2>Our committee loves games!</h2>
         <p class="lead">Our committee loves games just as much as the rest of the society! They share many roles - arranging events, setting them up, providing food and consoles, and more. Head <a class="text-secondary" href="committee.html">here</a> to see what they're all about.</p>
-        {% include button.html style="primary" class="btn-lg w-100 mb-3" href="/committee.html" text="Learn more" %}
+        <%= link_to 'Learn More', home_committee_path, class: 'btn btn-lg btn-secondary' %>
       </div>
     </div>
-    <div class="row px-5 pt-5 d-flex text-center align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/SOCIAL_FUN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover; text-shadow: 1px 1px 10px black;">
-      <div class="mx-auto p-3" style="background-color: rgba(0, 0, 0, 0.7);">
+    <div class="row px-5 pt-5 d-flex align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/SOCIAL_FUN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover; text-shadow: 1px 1px 10px black;">
+      <div class="mx-auto p-3 text-center" style="background-color: rgba(0, 0, 0, 0.7);">
         <h2>Want to join SLUGS? Here's how...</h2>
         <p class="lead">If you're a university student, sign up <b><a href="{{ site.society_join_link }}">here</a></b>. If not, why not <b><a class="text-discord" href="https://discord.gg/{{ site.discord_invite_link }}">join our Discord server</a></b> and get involved?</p>
-        {% capture discord_link %}https://discord.gg/{{site.discord_invite_link}}{% endcapture %}
-        <div class="btn-group d-flex mb-3">
-          {% include button.html style='danger' class="btn-lg w-100 mb-3" href=site.society_join_link text="Join SLUGS" %}
-          {% include button.html style='discord' class='btn-lg w-100 mb-3' href=discord_link text='Join Discord server' icon='fab fa-discord' %}
+        <div class="btn-group d-flex-inline mb-3">
+          <%= link_to 'Join SLUGS', home_sign_up_path, class: 'btn btn-lg btn-secondary' %>
+          <%= link_to 'Join Discord server', 'https://discord.gg', class: 'btn btn-lg btn-discord' %> <%# TODO: Discord link %>
         </div>
       </div>
     </div>
@@ -92,7 +91,7 @@
         <h2>Feeling LANxious?</h2>
         <p class="lead">Never been to a LAN before? LANs are exciting weekend-long events, and they're the perfect opportunity to play games all weekend with your friends! Bring your desktops or consoles along and have a blast!</p>
         <p class="lead">Still feeling uncertain? Head this way to get the lowdown on LANs (and, importantly, read the rules).</p>
-        {% include button.html style="primary" class="btn-lg w-100 mb-3" href="/lan.html" text="About SLUGS LAN events" %}
+        <%= link_to 'Learn More', home_lan_path, class: 'btn btn-lg btn-secondary' %>
       </div>
     </div>
     <div class="row px-5 pt-5 d-flex text-center align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/TOURNEY_WIN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
