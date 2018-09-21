@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :releases
+  resources :platforms
   get '/', to: 'home#index'
   root 'home#index'
   get 'home/committee'

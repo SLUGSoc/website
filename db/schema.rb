@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_21_142138) do
+ActiveRecord::Schema.define(version: 2018_09_21_183859) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "datetime"
@@ -37,6 +37,22 @@ ActiveRecord::Schema.define(version: 2018_09_21_142138) do
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "platforms", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "releases", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "platform_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_releases_on_game_id"
+    t.index ["platform_id"], name: "index_releases_on_platform_id"
   end
 
 end
