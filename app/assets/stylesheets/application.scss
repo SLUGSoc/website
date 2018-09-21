@@ -29,6 +29,8 @@ $theme-colors: (
  "xbox-360": #93c73e,
  "battlenet": #00B4FF
 );
+$link-color:                 #ddd;
+$link-hover-color:           #fff;
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
