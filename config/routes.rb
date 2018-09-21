@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get '/', to: 'home#index'
+  root 'home#index'
+  get 'home/committee'
+  get 'home/lan'
+  get 'home/socials'
+  get 'home/sign_up'
   resources :game_event_relations
   resources :events
   resources :games
