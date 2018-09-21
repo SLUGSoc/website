@@ -13,7 +13,7 @@
  */
 
 $body-bg: #343a40;
-$body-color: white; 
+$body-color: white;
 $theme-colors: (
  "primary": #3D3D3D,
  "discord": #7289DA,
@@ -29,4 +29,6 @@ $theme-colors: (
  "xbox-360": #93c73e,
  "battlenet": #00B4FF
 );
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap";
