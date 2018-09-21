@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Game Event Relations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Event</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_event_relations.each do |game_event_relation| %>
+      <tr>
+        <td><%= game_event_relation.game %></td>
+        <td><%= game_event_relation.event %></td>
+        <td><%= link_to 'Show', game_event_relation %></td>
+        <td><%= link_to 'Edit', edit_game_event_relation_path(game_event_relation) %></td>
+        <td><%= link_to 'Destroy', game_event_relation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game Event Relation', new_game_event_relation_path %>

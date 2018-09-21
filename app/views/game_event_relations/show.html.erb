@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @game_event_relation.game %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @game_event_relation.event %>
+</p>
+
+<%= link_to 'Edit', edit_game_event_relation_path(@game_event_relation) %> |
+<%= link_to 'Back', game_event_relations_path %>
