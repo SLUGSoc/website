@@ -31,6 +31,14 @@ $theme-colors: (
 );
 $link-color:                 #ddd;
 $link-hover-color:           #fff;
+@import url('https://fonts.googleapis.com/css?family=Oswald:500');
+$headings-font-family: Oswald, sans-serif;
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
+
+@for $i from 1 through 6{
+  h#{$i}{
+    text-transform: uppercase;
+  }
+}
