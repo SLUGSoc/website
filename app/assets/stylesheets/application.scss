@@ -12,4 +12,21 @@
  *
  */
 
+$body-bg: #343a40;
+$body-color: white; 
+$theme-colors: (
+ "primary": #3D3D3D,
+ "discord": #7289DA,
+ "facebook": #3b5998,
+ "twitter": #00aced,
+ "steam": black,
+ "nintendo-switch": #e60012,
+ "wii": #dddddd,
+ "dreamcast": #3b76c2,
+ "wii-u": #009ac7,
+ "xbox-one": #107c10,
+ "playstation-4": #003791,
+ "xbox-360": #93c73e,
+ "battlenet": #00B4FF
+);
 @import "bootstrap";
