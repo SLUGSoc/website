@@ -10,9 +10,9 @@
           <p>SLUGS is the University of Sheffield society for <b>video games</b>. Whether you've only ever played <i>Wii Sports</i> or <i>League of Legends</i> is more your style, SLUGS welcomes a <b>wide variety of games and players</b>!</p>
           <p>We meet on <b>Tuesdays</b> for drinks and games, and <b>LANs</b> are hosted on a roughly monthly basis.</p>
           <p>
-            <b>Not a member yet?</b> <a href="{{ site.society_join_link }}"><i class="fas fa-edit"></i> Sign up</a> or join our <a href="https://discord.gg/{{ site.discord_invite_link }}"><i class="fab fa-discord"></i> Discord server</a>!<br />
+            <b>Not a member yet?</b> <%= link_to 'Sign up', home_sign_up_path %> or join our <%= link_to 'Discord server', 'https://discord.gg' %>!<br />
             Read on for a taster of what it's like to game with SLUGS.<br />
-            <b>Already a SLUG?</b> <a href="#glance">Check out what's coming up.</a>
+            <b>Already a SLUG?</b> <%= link_to 'Check out what\'s coming up.', '#events' %>
           </p>
         </div>
       </div>
@@ -72,14 +72,14 @@
     <div class="row px-5 pt-5 d-flex align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/COMMITTEE-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.7);">
         <h2>Our committee loves games!</h2>
-        <p class="lead">Our committee loves games just as much as the rest of the society! They share many roles - arranging events, setting them up, providing food and consoles, and more. Head <a class="text-secondary" href="committee.html">here</a> to see what they're all about.</p>
+        <p class="lead">Our committee loves games just as much as the rest of the society! They share many roles - arranging events, setting them up, providing food and consoles, and more. Head <%= link_to home_committee_path, 'here' %> to see what they're all about.</p>
         <%= link_to 'Learn More', home_committee_path, class: 'btn btn-lg btn-secondary' %>
       </div>
     </div>
     <div class="row px-5 pt-5 d-flex align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/SOCIAL_FUN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover; text-shadow: 1px 1px 10px black;">
       <div class="mx-auto p-3 text-center" style="background-color: rgba(0, 0, 0, 0.7);">
         <h2>Want to join SLUGS? Here's how...</h2>
-        <p class="lead">If you're a university student, sign up <b><a href="{{ site.society_join_link }}">here</a></b>. If not, why not <b><a class="text-discord" href="https://discord.gg/{{ site.discord_invite_link }}">join our Discord server</a></b> and get involved?</p>
+        <p class="lead">If you're a university student, sign up <b><%= link_to 'here', home_sign_up_path %></b>. If not, why not <b> <%= link_to 'join our Discord server', 'https://discord.gg', class: 'text-discord' %></b> and get involved?</p>
         <div class="btn-group d-flex-inline mb-3">
           <%= link_to 'Join SLUGS', home_sign_up_path, class: 'btn btn-lg btn-secondary' %>
           <%= link_to 'Join Discord server', 'https://discord.gg', class: 'btn btn-lg btn-discord' %> <%# TODO: Discord link %>
