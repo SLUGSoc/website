@@ -16,7 +16,7 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.name %></td>
-        <td><%= game.platform %></td>
+        <td><%= icon(*game.platform.icon.split) %></td>
         <td><%= game.link %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
