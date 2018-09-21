@@ -12,7 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :datetime %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :datetime, 'Date/Time' %>
     <%= form.datetime_select :datetime %>
   </div>
 
@@ -22,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :lan_number %>
+    <%= form.label :lan_number , 'LAN Number' %>
     <%= form.number_field :lan_number %>
   </div>
 
