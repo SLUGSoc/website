@@ -1,5 +1,5 @@
 <h1>Our Committee</h1>
 <%= image_tag 'committee18.jpg', style: 'max-height: 50vh;', class: 'd-block mx-auto mb-3' %>
-<div class="card-deck">
-  <%# TODO: Committee cards %>
+<div class="card-columns">
+  <%= render Member.committee %>
 </div>

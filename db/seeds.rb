@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'yaml'
+seed_file = Rails.root.join('db', 'committee.yml')
+committee = YAML::load_file(seed_file)
+committee.each do |member|
+  Member.create(
+    name: member['name'],
+    blurb: member['blurb'],
+    image_link: member['image'],
+    alias: member['alias'],
+    role: member['role']
+  )
+end

@@ -1,0 +1,16 @@
+<div class="card text-dark">
+  <div class="card-body row">
+    <div class="col-md-6">
+      <h3><%= member.name %><br><small class="text-muted"><%= member.alias %></small></h3>
+      <h4><%= member.role %></h4>
+      <%= render member.platform_accounts %>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag member.image_link, class: 'w-100 rounded' %>
+    </div>
+    <div class="col-12">
+      <hr>
+      <%= member.blurb %>
+    </div>
+  </div>
+</div>
