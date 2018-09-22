@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @platform_account.platform %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @platform_account.member %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @platform_account.tag %>
+</p>
+
+<p>
+  <strong>Internal link:</strong>
+  <%= @platform_account.internal_link %>
+</p>
+
+<%= link_to 'Edit', edit_platform_account_path(@platform_account) %> |
+<%= link_to 'Back', platform_accounts_path %>

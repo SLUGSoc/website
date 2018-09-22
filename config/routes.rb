@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :platform_accounts
+  resources :members
   resources :releases
   resources :platforms
   get '/', to: 'home#index'
