@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def socials
+    @events ||= Event.all_future
   end
 
   def sign_up

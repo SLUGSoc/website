@@ -1,13 +1,16 @@
-<div class="row pt-3 mx-0 bg-dark text-light">
+<div class="row">
   <div class="col-md-8">
     <div class="d-flex flex-column" style="min-height: 100%;">
       <h1>Socials Schedule</h1>
-      <%# TODO: Socials list with fancy cards %>
-      <!-- <img src="assets/img/NotFound.jpg" class="w-100 mb-3" alt="There clearly isn't anything in this box at all... Perhaps you've just gotta look a little harder!" /> -->
-      <!-- <div class="alert alert-info d-flex align-items-center">
-        <i class="fas fa-info-circle flex-shrink-1 mx-3"></i>
+      <% if @events.count == 0 %>
+      <%= image_tag 'NotFound.jpg', class: 'w-100 mb-3 rounded' %>
+      <div class="alert alert-info d-flex align-items-center">
+        <%= icon('fas', 'info-circle', class: 'flex-shrink-1 mx-3') %>
         <p class="flex-grow-1 mb-0">We don't currently have any socials queued up yet. Watch this space, and definitely keep an eye out on the Facebook page.</p>
-      </div> -->
+      </div>
+      <% else %>
+        <%= render @events %>
+      <% end %>
     </div>
   </div>
   <div class="col-md-4">
