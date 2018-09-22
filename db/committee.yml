@@ -97,6 +97,7 @@
     discord: '"Chip" Gregregorovich#8603'
     steam: Gregregorovich
     steam64: 76561193769592749
+  blurb: Hey, I'm Greg. I'm one of the head techs, and am partly responsible for our servers and ensuring everyone has power and internet at LANs. I'm a Materials Engineer, and when I'm not designing plywood computers or 3D printer projects I'll be mostly playing Warframe, Rainbow Six Siege, Planetary Annihilation or SupCom 2. If you're having any network issues at LANs or having trouble connecting to one of our game servers, let me or one of the other tech team know.
 - name: Fred
   alias: RaptureAwaits
   role: Tech Officer
@@ -113,9 +114,10 @@
   image: committee/eric.png
   id:
     discord: Chintam#0468
+  blurb: Hi all! I'm the Head Tech for the society. I help to handle the LAN parties and the gaming servers. I'm currently a 4th year Mechanical Engineering student, and my Masters project is on omnidirectional dampers. I play a variety of games, but I have a particular love for Rhythm games like osu! and Guitar Hero.
 - name: Matt
   role: Console Officer
-  image: committee/tom.png
+  image: committee/hutchie.png
   blurb: Hi, I'm Matt. I'm the SLUGS console officer. My job involves taking care of our consoles and bringing them to socials. I've been coming to SLUGS for 3 years. You can find me most days playing League of Legends, FIFA, or one of the 101 strategy games I have in my Steam library. I love meeting new people through SLUGS, so come find me if you're at one of our socials and tell me what your favourite Pokemon is (and why is it Mamoswine?).
 - name: Charlie
   role: Food Officer
@@ -123,3 +125,4 @@
   id:
     steam: Belf
     steam64: 76561198030000141
+  blurb: Hi, I'm Charlie! You'll usually catch me at the back of a LAN looking after the grub for everyone. I'm pretty approachable about anything, be it uni based or society based, so feel free to lemme know if you want a chat! I usually play card games and grand strategy games, with a little hack 'n' slash on the side.
