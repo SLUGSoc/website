@@ -8,4 +8,8 @@ class Event < ApplicationRecord
   def facebook_event_link
     "https://facebook.com/#{facebook_event_id}"
   end
+
+  def self.next_lan
+    all_future.find { |event| !!(event.name =~ /LAN \d{2,3}/) }
+  end
 end

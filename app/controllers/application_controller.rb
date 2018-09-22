@@ -28,5 +28,6 @@ class ApplicationController < ActionController::Base
     @facebook_page_link ||= facebook_page_link
     @twitter_page_link ||= twitter_page_link
     @facebook_group_link ||= facebook_group_link
+    @lan ||= Event.next_lan
   end
 end
