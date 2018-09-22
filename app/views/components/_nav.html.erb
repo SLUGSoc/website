@@ -1,26 +1,76 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="<%= root_path %>">Navbar</a>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+  <%= link_to root_path, class: 'navbar-brand' do %>
+    <img src="/assets/img/logo-white.png" style="height: 1rem;" alt="" />
+    <span class="d-none d-md-inline">
+      S<span class="brand-compact" style="width: 49px;">heffie</span>l<span class="brand-compact" style="width: 14px;">d </span>U<span class="brand-compact" style="width: 78px;">niversity </span>G<span class="brand-compact" style="width: 51px;">aming </span>Soc<span class="brand-compact" style="width: 34px;">iety</span>
+    </span>
+    <span class="d-md-none">SLUGS Gaming Society</span>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Socials', home_socials_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'LANs', home_lan_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Committee', home_committee_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Join Us', home_sign_up_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<%= events_path %>">Events</a>
-          <a class="dropdown-item" href="<%= games_path %>">Games</a>
-          <a class="dropdown-item" href="<%= platforms_path %>">Platforms</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<%= game_event_relations_path %>">Add Games To Events</a>
-          <a class="dropdown-item" href="<%= releases_path %>">Add Games To Platforms</a>
+          <%= link_to 'Events', events_path, class: 'dropdown-item' %>
+          <%= link_to 'Games', games_path, class: 'dropdown-item' %>
+          <%= link_to 'Platforms', platforms_path, class: 'dropdown-item' %>
+          <%= link_to 'Add Games to Events', game_event_relations_path, class: 'dropdown-item' %>
+          <%= link_to 'Add Games to Platforms', releases_path, class: 'dropdown-item' %>
         </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto text-center">
+      <form class="form-inline mr-3">
+        <div class="btn-group mx-auto">
+          <%= link_to "https://discord.gg/", class: 'btn btn-discord' do %>
+            <span>
+              <i class="fab fa-discord"></i>
+              <span class="expand-text">Discord</span>
+            </span>
+          <% end %>
+          <%= link_to "https://facebook.com/", class: 'btn btn-facebook' do %>
+            <span>
+              <i class="fab fa-facebook"></i>
+              <span class="expand-text">
+                Facebook
+              </span>
+            </span>
+          <% end %>
+          <%= link_to "https://twitter.com/", class: 'btn btn-twitter' do %>
+            <span>
+              <i class="fab fa-twitter"></i>
+              <span class="expand-text">
+                Twitter
+              </span>
+            </span>
+          <% end %>
+        </div>
+      </form>
+      <li class="nav-item">
+        <%= link_to 'https://google.com', class: 'btn btn-secondary' do %>
+          LAN
+        <% end %>
       </li>
     </ul>
   </div>
