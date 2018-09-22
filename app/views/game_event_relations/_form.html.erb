@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :game_id %>
-    <%= form.text_field :game_id %>
+    <%= form.collection_select :game_id, Game.order(:name),:id,:name, include_blank: true %>
   </div>
 
   <div class="field">
-    <%= form.label :event_id %>
-    <%= form.text_field :event_id %>
+    <%= form.collection_select :event_id, Event.order(:datetime),:id,:name, include_blank: true %>
   </div>
 
   <div class="actions">
