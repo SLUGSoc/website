@@ -1,0 +1,24 @@
+<div class="card text-dark">
+  <div class="d-flex flex-row">
+    <div class="card-body w-50">
+      <h3><%= event.name %></h3>
+      <ul class="fa-ul">
+        <li><span class="fa-li"><%= icon('fas', 'calendar') %></span><%= event.datetime.to_date.to_s(:short) %></li>
+        <li><span class="fa-li"><%= icon('fas', 'clock') %></span><%= event.datetime.strftime('%l.%M %p') %></li>
+        <li><span class="fa-li"><%= icon('fas', 'map-pin') %></span><%= event.location %></li>
+      </ul>
+    </div>
+    <!-- <%= image_tag event.image_link if event.image_link %> -->
+    <div class="w-50" style="height: inherit; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url(<%= asset_path event.image_link %>); background-position: center center; background-size: cover;"></div>
+  </div>
+  <div class="card-footer row no-gutters p-0 text-light text-center">
+    <%= link_to event.facebook_event_link, class: "col bg-facebook" do %>
+        <%= icon('fab', 'facebook') %> View on Facebook
+    <% end %>
+    <%= link_to event.ticket_link, class: "col bg-secondary" do %>
+      <div class="col bg-secondary">
+          <%= icon('fas', 'ticket-alt') %> Buy Ticket
+      </div>
+    <% end %>
+  </div>
+</div>

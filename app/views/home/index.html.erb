@@ -23,6 +23,7 @@
   <h2>Upcoming Events</h2>
   <%= link_to 'All Socials', events_path, class: 'btn btn-secondary ml-3' %>
   <%= link_to 'Events on Facebook', "https://www.facebook.com/pg/SLUGSoc/events", class: 'btn btn-facebook ml-3' %>
+  <%= render Event.all_future.take(3) %>
 </section>
 <section id="summary">
   <div class="container-fluid px-5">
