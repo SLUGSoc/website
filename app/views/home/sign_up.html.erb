@@ -1,2 +1,15 @@
-<h1>Home#sign_up</h1>
-<p>Find me in app/views/home/sign_up.html.erb</p>
+<div class="text-center d-flex flex-column justify-content-center" style="height: 90vh;">
+  <div class="card text-dark">
+    <div class="card-header">
+      <h1>Join the ranks!</h1>
+    </div>
+    <div class="card-body">
+      <p>Click the button below to head on over to the Students' Union website, where you can <b>purchase membership </b> for £3. This grants you membership from now until the end of the current academic year.</p>
+      <p>With this membership, you can <b>attend LANs</b> and other events we run. This also entitles you to any benefits our sponsors offer, including discounts on drinks.</p>
+      <%= link_to  'https://google.com', class: 'btn btn-lg btn-secondary' do %>
+        <%= icon('fas', 'external-link-alt') %>
+        Take me there!
+      <% end %>
+    </div>
+  </div>
+</div>
