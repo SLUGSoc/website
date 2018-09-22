@@ -6,6 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'yaml'
+sponsor_seed_file = Rails.root.join('db', 'sponsors.yml')
+sponsors = YAML::load_file(sponsor_seed_file)
+sponsors.each do |sponsor|
+  Sponsor.create(
+    name: sponsor['name'],
+    blurb: sponsor['blurb'],
+    website: sponsor['link'],
+    facebook: sponsor['facebook_link'],
+    twitter: sponsor['twitter_link'],
+    image_link: sponsor['image']
+  )
+end
 platform_seed_file = Rails.root.join('db', 'platforms.yml')
 platforms = YAML::load_file(platform_seed_file)
 platforms.each do |platform|
