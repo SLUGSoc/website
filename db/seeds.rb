@@ -14,6 +14,29 @@ platforms.each do |platform|
     icon: platform['icon']
   )
 end
+game_seed_file = Rails.root.join('db', 'games.yml')
+games = YAML::load_file(game_seed_file)
+games.each do |game|
+  internal_game = Game.create(
+    name: game['title'],
+    link: game['link']
+  )
+  Release.create(
+    game: internal_game,
+    platform: Platform.find_or_create_by(name: game['platform'])
+  )
+end
+lan_code_of_conduct = Code.find_or_create_by(name: 'LAN Rules')
+rule_seed_file = Rails.root.join('db', 'lan_rules.yml')
+rules = YAML::load_file(rule_seed_file)
+internal_rules = rules.map do |rule|
+  Rule.create(
+    code: lan_code_of_conduct,
+    summary: rule['summary'],
+    full: rule['content'],
+    icon: rule['icon']
+  )
+end
 committee_seed_file = Rails.root.join('db', 'committee.yml')
 committee = YAML::load_file(committee_seed_file)
 committee.each do |member|

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :rules
+  resources :codes
   resources :platform_accounts
   resources :members
   resources :releases

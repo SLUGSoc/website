@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_22_112806) do
+ActiveRecord::Schema.define(version: 2018_09_22_135754) do
+
+  create_table "codes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.datetime "datetime"
@@ -76,6 +82,16 @@ ActiveRecord::Schema.define(version: 2018_09_22_112806) do
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_releases_on_game_id"
     t.index ["platform_id"], name: "index_releases_on_platform_id"
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.integer "code_id"
+    t.string "summary"
+    t.string "full"
+    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code_id"], name: "index_rules_on_code_id"
   end
 
 end

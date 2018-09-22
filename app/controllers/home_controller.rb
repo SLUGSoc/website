@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
 
   def lan
+    @rules ||= Code.find_by(name: 'LAN Rules')
   end
 
   def socials

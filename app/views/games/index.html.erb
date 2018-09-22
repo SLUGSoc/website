@@ -18,7 +18,7 @@
         <td><%= game.name %></td>
         <td>
           <% game.platforms.each do |platform| %>
-            <%= icon(*platform.icon.split) %>
+            <%= icon(*platform.icon.split) unless platform.icon.nil? %>
           <% end %>
         </td>
         <td><%= game.link %></td>
