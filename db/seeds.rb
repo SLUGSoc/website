@@ -27,9 +27,10 @@ committee.each do |member|
   next if member['id'].nil?
   member['id'].each do |platform, tag|
     next if platform == 'steam64'
+    sub_platform = Platform.find_by(name: 'Battle.net') if platform == 'battlenet'
     PlatformAccount.create(
       member: internal_member,
-      platform: Platform.find_or_create_by(name: platform.titleize),
+      platform: sub_platform || Platform.find_or_create_by(name: platform.titleize),
       tag: tag
     )
   end
