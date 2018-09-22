@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :platform_id %>
-    <%= form.text_field :platform_id %>
+   <%= form.collection_select :platform_id, Platform.order(:name),:id,:name, include_blank: false %>
   </div>
 
   <div class="field">
-    <%= form.label :member_id %>
-    <%= form.text_field :member_id %>
+    <%= form.collection_select :member_id, Member.order(:name),:id,:name, include_blank: false %>
   </div>
 
   <div class="field">

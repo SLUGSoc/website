@@ -9,11 +9,20 @@ require 'yaml'
 seed_file = Rails.root.join('db', 'committee.yml')
 committee = YAML::load_file(seed_file)
 committee.each do |member|
-  Member.create(
+  internal_member = Member.create(
     name: member['name'],
     blurb: member['blurb'],
     image_link: member['image'],
     alias: member['alias'],
     role: member['role']
   )
+  next if member['id'].nil?
+  member['id'].each do |platform, tag|
+    next if platform == 'steam64'
+    PlatformAccount.create(
+      member: internal_member,
+      platform: Platform.find_or_create_by(name: platform.titleize),
+      tag: tag
+    )
+  end
 end
