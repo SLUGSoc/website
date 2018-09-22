@@ -1,0 +1,28 @@
+<div class="card bg-dark">
+  <div class="card-body row">
+    <div class="col-md">
+      <%= image_tag sponsor.image_link, style: "max-height: 200px" %>
+    </div>
+    <div class="col-md">
+      <h4><%= sponsor.name %></h4>
+      <p><%= sponsor.blurb %></p>
+      <div class="btn-group">
+        <% if sponsor.website %>
+          <%= link_to sponsor.website, class: 'btn btn-secondary' do %>
+            <%= icon('fas', 'globe') %>
+          <% end %>
+        <% end %>
+        <% if sponsor.facebook %>
+          <%= link_to sponsor.facebook, class: 'btn btn-facebook' do %>
+            <%= icon('fab', 'facebook') %>
+          <% end %>
+        <% end %>
+        <% if sponsor.twitter %>
+          <%= link_to sponsor.twitter, class: 'btn btn-twitter' do %>
+            <%= icon('fab', 'twitter') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

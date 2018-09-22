@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @sponsors ||= Sponsor.all
   end
 
   def committee
