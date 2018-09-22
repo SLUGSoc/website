@@ -6,8 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'yaml'
-seed_file = Rails.root.join('db', 'committee.yml')
-committee = YAML::load_file(seed_file)
+platform_seed_file = Rails.root.join('db', 'platforms.yml')
+platforms = YAML::load_file(platform_seed_file)
+platforms.each do |platform|
+  Platform.create(
+    name: platform['name'],
+    icon: platform['icon']
+  )
+end
+committee_seed_file = Rails.root.join('db', 'committee.yml')
+committee = YAML::load_file(committee_seed_file)
 committee.each do |member|
   internal_member = Member.create(
     name: member['name'],
