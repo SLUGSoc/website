@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
       <th>Date/Time</th>
       <th>Location</th>
       <th>LAN number</th>
@@ -19,6 +21,8 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
+        <td><%= event.description&.truncate(27) %></td>
+        <td><%= image_tag event.image_link, style: 'max-height: 50px;' if event.image_link %></td>
         <td><%= event.datetime %></td>
         <td><%= event.location %></td>
         <td><%= event.lan_number %></td>

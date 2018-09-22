@@ -17,6 +17,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_link %>
+    <%= form.text_field :image_link %>
+  </div>
+
+  <div class="field">
     <%= form.label :datetime, 'Date/Time' %>
     <%= form.datetime_select :datetime %>
   </div>
