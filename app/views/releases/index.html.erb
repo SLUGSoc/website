@@ -15,7 +15,7 @@
     <% @releases.each do |release| %>
       <tr>
         <td><%= release.game.name %></td>
-        <td><%= icon(*release.platform.icon.split) if release.platform.icon.split.length == 2  %></td>
+        <td><%= icon(*release.platform.icon.split) unless release.platform.icon.nil?  %></td>
         <td><%= link_to 'Show', release %></td>
         <td><%= link_to 'Edit', edit_release_path(release) %></td>
         <td><%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>
