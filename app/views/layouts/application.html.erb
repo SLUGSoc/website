@@ -11,7 +11,7 @@
 
   <body>
     <%= render 'components/nav' %>
-    <div class="container <% unless current_page?(root_path) %>my-3<% end %>">
+    <div class="container-fluid <% unless current_page?(root_path) %>my-3<% end %>">
       <%= yield %>
     </div>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
