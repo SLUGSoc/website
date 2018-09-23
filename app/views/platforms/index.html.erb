@@ -1,24 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Platforms</h1>
+<h1>
+  Platforms
+  <%= link_to new_platform_path, class: 'btn btn-success' do %>
+    <%= icon('fas', 'plus-square') %>
+    Create New
+  <% end %>
+</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Icon</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table class="table table-borderless">
   <tbody>
     <% @platforms.each do |platform| %>
       <tr>
-        <td><%= platform.name %></td>
-        <td><%= icon(*platform.icon.split) unless platform.icon.nil? %></td>
-        <td><%= link_to 'Show', platform %></td>
-        <td><%= link_to 'Edit', edit_platform_path(platform) %></td>
-        <td><%= link_to 'Destroy', platform, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="align-middle text-right bg-<%= platform.bootstrap_class %>">
+          <%= icon(*platform.icon.split) unless platform.icon.nil? %>
+          <%= platform.name %>
+        </td>
+        <td class="align-middle">
+          <div class="btn-group d-flex">
+            <%= link_to platform, class: 'btn btn-info w-100' do %>
+              <%= icon('fas', 'info-circle', 'Show') %>
+            <% end %>
+            <%= link_to edit_platform_path(platform), class: 'btn btn-warning w-100' do %>
+              <%= icon('fas', 'edit', 'Edit') %>
+            <% end %>
+            <%= link_to platform, class: 'btn btn-danger w-100', method: :delete, data: { confirm: "Are you sure you want to delete #{platform.name} from the platforms list?" } do %>
+              <%= icon('fas', 'trash', 'Delete') %>
+            <% end %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
