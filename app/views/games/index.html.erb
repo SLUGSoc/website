@@ -1,13 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
+<h1>
+  Games
+  <%= link_to new_game_path, class: 'btn btn-success' do %>
+    <%= icon('fas', 'plus-square') %>
+    Create New
+  <% end %>
+</h1>
+
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th class="text-center">Platform</th>
-      <th>Actions</th>
+      <th class="text-right">Name</th>
+      <th class="text-left">Platform</th>
+      <th class="text-center">Actions</th>
     </tr>
   </thead>
 
@@ -15,9 +22,12 @@
     <% @games.each do |game| %>
       <tr>
         <td class="align-middle text-right"><%= link_to game.name, game.link %></td>
-        <td class="align-middle text-center">
+        <td class="align-middle text-left">
           <% game.platforms.each do |platform| %>
-            <%= icon(*platform.icon.split) unless platform.icon.nil? %>
+            <span class="badge badge-pill badge-<%= platform.bootstrap_class %>">
+              <%= icon(*platform.icon.split) unless platform.icon.nil? %>
+              <%= platform.name %>
+            </span>
           <% end %>
         </td>
         <td class="align-middle">
@@ -37,7 +47,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Game', new_game_path %>
