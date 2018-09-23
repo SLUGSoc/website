@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :game_id %>
-    <%= form.text_field :game_id %>
+    <%= form.collection_select :game_id, Game.order(:name),:id,:name, include_blank: false %>
   </div>
 
   <div class="field">
     <%= form.label :platform_id %>
-    <%= form.text_field :platform_id %>
+    <%= form.collection_select :platform_id, Platform.order(:name),:id,:name, include_blank: false %>
   </div>
 
   <div class="actions">
