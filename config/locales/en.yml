@@ -31,3 +31,25 @@
 
 en:
   hello: "Hello world"
+  site_name: "SLUGS - Sheffield University Gaming Society"
+  home:
+    upcoming_events:
+      title: "Events - SLUGS - Sheffield University Gaming Society"
+    lan:
+      title: "LAN Events - SLUGS - Sheffield University Gaming Society"
+    committee:
+      title: "Our Committee - SLUGS - Sheffield University Gaming Society"
+    sign_up:
+      title: "Join Us - SLUGS - Sheffield University Gaming Society"
+  events:
+    index:
+      title: 'Admin - Events - SLUGS - Sheffield University Gaming Society'
+  games:
+    index:
+      title: 'Admin - Games - SLUGS - Sheffield University Gaming Society'
+  platforms:
+    index:
+      title: 'Admin - Platforms - SLUGS - Sheffield University Gaming Society'
+  releases:
+    index:
+      title: 'Admin - Releases - SLUGS - Sheffield University Gaming Society'
