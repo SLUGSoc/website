@@ -36,6 +36,8 @@ gem 'jquery-rails'
 gem 'faraday'
 # Use Twitter to post to account
 gem 'twitter'
+# Use Koala to post to and retrieve from Facebook account
+gem 'koala'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
