@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @sponsors ||= Sponsor.all
+    @events ||= Event.all_future.take(3)
   end
 
   def committee
