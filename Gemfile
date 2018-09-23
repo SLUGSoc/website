@@ -34,6 +34,8 @@ gem 'font-awesome-sass', '~> 5.3.1'
 gem 'jquery-rails'
 # Use Faraday to make requests
 gem 'faraday'
+# Use Twitter to post to account
+gem 'twitter'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
