@@ -1,5 +1,7 @@
 <h1>New Event</h1>
 
-<%= render 'form', event: @event %>
+<div class="container py-3 bg-light text-dark rounded">
+  <%= render 'form', event: @event %>
+</div>
 
 <%= link_to 'Back', events_path %>

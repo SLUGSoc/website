@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Theme application using Bootstrap
 gem 'bootstrap', '~> 4.1.3'
+# Theme forms using Bootstrap
+gem "bootstrap_form", ">= 4.0.0.alpha1"
 # Add icons
 gem 'font-awesome-sass', '~> 5.3.1'
 # Bootstrap JS depends on jquery-rails

@@ -28,6 +28,13 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        begin
+          FacebookService.post_event(@event) if params['event']['facebook'].to_i.positive?
+        rescue Koala::Facebook::ClientError => e
+          flash[:notice] = "Facebook: #{e.inspect}"
+        end
+        TwitterService.post_event(@event) if params['event']['twitter'].to_i.positive?
+        DiscordService.post_event(@event) if params['event']['discord'].to_i.positive?
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else

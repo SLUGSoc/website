@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   end
 
   def facebook_event_link
-    "https://facebook.com/#{facebook_event_id}"
+    "https://facebook.com/events/#{facebook_event_id}"
   end
 
   def self.next_lan
