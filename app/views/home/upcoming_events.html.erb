@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-md-8">
     <div class="d-flex flex-column" style="min-height: 100%;">
-      <h1>Socials Schedule</h1>
+      <h1>Upcoming Events</h1>
       <% if @events.count == 0 %>
       <%= image_tag 'NotFound.jpg', class: 'w-100 mb-3 rounded' %>
       <div class="alert alert-info d-flex align-items-center">
         <%= icon('fas', 'info-circle', class: 'flex-shrink-1 mx-3') %>
-        <p class="flex-grow-1 mb-0">We don't currently have any socials queued up yet. Watch this space, and definitely keep an eye out on the Facebook page.</p>
+        <p class="flex-grow-1 mb-0">We don't currently have any socials or events announced yet. Watch this space, and definitely keep an eye out on the Facebook page.</p>
       </div>
       <% else %>
         <%= render @events %>

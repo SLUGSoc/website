@@ -1,6 +1,7 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
   <%= link_to root_path, class: 'navbar-brand' do %>
-    <img src="/assets/img/logo-white.png" style="height: 1rem;" alt="" />
+    <img src="/assets/img/logo-white.png"  alt="" />
+    <%= image_tag 'logo-white.png', style: "height: 1rem;" %>
     <span class="d-none d-md-inline">
       S<span class="brand-compact" style="width: 49px;">heffie</span>l<span class="brand-compact" style="width: 14px;">d </span>U<span class="brand-compact" style="width: 78px;">niversity </span>G<span class="brand-compact" style="width: 51px;">aming </span>Soc<span class="brand-compact" style="width: 34px;">iety</span>
     </span>
@@ -16,7 +17,7 @@
         <%= link_to 'Home', root_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Socials', home_socials_path, class: "nav-link" %>
+        <%= link_to 'Events', home_upcoming_events_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to 'LANs', home_lan_path, class: "nav-link" %>

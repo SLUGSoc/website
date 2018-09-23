@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/committee'
   get 'home/lan'
-  get 'home/socials'
+  get 'home/upcoming_events'
   get 'home/sign_up'
   resources :game_event_relations
   resources :events

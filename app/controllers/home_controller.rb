@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     @rules ||= Code.find_by(name: 'LAN Rules')
   end
 
-  def socials
+  def upcoming_events
     @events ||= Event.all_future
   end
 

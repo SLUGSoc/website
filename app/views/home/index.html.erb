@@ -21,7 +21,7 @@
 </section>
 <section id="events">
   <h2>Upcoming Events</h2>
-  <%= link_to 'All Socials', home_socials_path, class: 'btn btn-secondary ml-3' %>
+  <%= link_to 'All Socials', home_upcoming_events_path, class: 'btn btn-secondary ml-3' %>
   <%= link_to 'Events on Facebook', "#{@facebook_page_link}/events", class: 'btn btn-facebook ml-3' %>
   <%= render Event.all_future.take(3) %>
 </section>
