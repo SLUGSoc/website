@@ -6,7 +6,7 @@ module FacebookService
     end
 
     def post_event(event)
-      client.put_connections('me', 'feed', message: event_to_facebook_post(event), link: event.facebook_event_link)
+      client.put_picture(event.image_link, {:message => event_to_facebook_post(event)}, ENV.fetch('FACEBOOK_PAGE_ID')) #post as picture with caption
     end
 
     def client
