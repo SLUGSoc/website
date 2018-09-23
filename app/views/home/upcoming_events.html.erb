@@ -10,7 +10,12 @@
           <p class="flex-grow-1 mb-0">We don't currently have any socials or events announced yet. Watch this space, and definitely keep an eye out on the Facebook page.</p>
         </div>
         <% else %>
-          <%= render @events %>
+          <% @events.each do |event| %>
+            <%= render event %>
+            <% unless event == @events.last %>
+              <hr>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
     </div>
