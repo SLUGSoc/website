@@ -10,7 +10,7 @@
           <p>SLUGS is the University of Sheffield society for <b>video games</b>. Whether you've only ever played <i>Wii Sports</i> or <i>League of Legends</i> is more your style, SLUGS welcomes a <b>wide variety of games and players</b>!</p>
           <p>We meet on <b>Tuesdays</b> for drinks and games, and <b>LANs</b> are hosted on a roughly monthly basis.</p>
           <p>
-            <b>Not a member yet?</b> <%= link_to 'Sign up', home_sign_up_path %> or join our <%= link_to 'Discord server', @discord_invite_link %>!<br />
+            <b>Not a member yet?</b> <%= link_to 'Sign up', sign_up_path %> or join our <%= link_to 'Discord server', @discord_invite_link %>!<br />
             Read on for a taster of what it's like to game with SLUGS.<br />
             <b>Already a SLUG?</b> <%= link_to 'Check out what\'s coming up.', '#events' %>
           </p>
@@ -21,7 +21,7 @@
 </section>
 <section id="events">
   <h2>Upcoming Events</h2>
-  <%= link_to 'All Socials', home_upcoming_events_path, class: 'btn btn-secondary ml-3' %>
+  <%= link_to 'All Socials', upcoming_events_path, class: 'btn btn-secondary ml-3' %>
   <%= link_to 'Events on Facebook', "#{@facebook_page_link}/events", class: 'btn btn-facebook ml-3' %>
   <%= render Event.all_future.take(3) %>
 </section>
@@ -42,7 +42,7 @@
           <p>Once every few weeks, we run LAN events at the Ridge building in Ranmoor Student Village. They're an excellent opportunity to engage with the groups you play games with. If you've not yet been to a LAN and would like to learn more, head this way!</p>
           <p>
             <%# TODO: LAN event link %>
-            <%= link_to 'View Details', home_lan_path, class: 'btn btn-secondary' %>
+            <%= link_to 'View Details', lan_path, class: 'btn btn-secondary' %>
           </p>
         </div>
       </div>
@@ -73,16 +73,16 @@
     <div class="row px-5 pt-5 d-flex align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/COMMITTEE-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.7);">
         <h2>Our committee loves games!</h2>
-        <p class="lead">Our committee loves games just as much as the rest of the society! They share many roles - arranging events, setting them up, providing food and consoles, and more. Head <%= link_to 'here', home_committee_path %> to see what they're all about.</p>
-        <%= link_to 'Learn More', home_committee_path, class: 'btn btn-lg btn-secondary' %>
+        <p class="lead">Our committee loves games just as much as the rest of the society! They share many roles - arranging events, setting them up, providing food and consoles, and more. Head <%= link_to 'here', committee_path %> to see what they're all about.</p>
+        <%= link_to 'Learn More', committee_path, class: 'btn btn-lg btn-secondary' %>
       </div>
     </div>
     <div class="row px-5 pt-5 d-flex align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/SOCIAL_FUN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
       <div class="mx-auto p-3 text-center" style="background-color: rgba(0, 0, 0, 0.7);">
         <h2>Want to join SLUGS? Here's how...</h2>
-        <p class="lead">If you're a university student, sign up <b><%= link_to 'here', home_sign_up_path %></b>. If not, why not <b> <%= link_to 'join our Discord server', @discord_invite_link, class: 'text-discord' %></b> and get involved?</p>
+        <p class="lead">If you're a university student, sign up <b><%= link_to 'here', sign_up_path %></b>. If not, why not <b> <%= link_to 'join our Discord server', @discord_invite_link, class: 'text-discord' %></b> and get involved?</p>
         <div class="btn-group d-flex-inline mb-3">
-          <%= link_to 'Join SLUGS', home_sign_up_path, class: 'btn btn-lg btn-secondary' %>
+          <%= link_to 'Join SLUGS', sign_up_path, class: 'btn btn-lg btn-secondary' %>
           <%= link_to 'Join Discord server', @discord_invite_link, class: 'btn btn-lg btn-discord' %> <%# TODO: Discord link %>
         </div>
       </div>
@@ -92,7 +92,7 @@
         <h2>Feeling LANxious?</h2>
         <p class="lead">Never been to a LAN before? LANs are exciting weekend-long events, and they're the perfect opportunity to play games all weekend with your friends! Bring your desktops or consoles along and have a blast!</p>
         <p class="lead">Still feeling uncertain? Head this way to get the lowdown on LANs (and, importantly, read the rules).</p>
-        <%= link_to 'Learn More', home_lan_path, class: 'btn btn-lg btn-secondary' %>
+        <%= link_to 'Learn More', lan_path, class: 'btn btn-lg btn-secondary' %>
       </div>
     </div>
     <div class="row px-5 pt-5 d-flex text-center align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/TOURNEY_WIN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">

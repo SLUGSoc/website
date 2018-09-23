@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   resources :platforms
   get '/', to: 'home#index'
   root 'home#index'
-  get 'home/committee'
-  get 'home/lan'
-  get 'home/upcoming_events'
-  get 'home/sign_up'
+  get 'committee', to: 'home#committee'
+  get 'lan', to: 'home#lan'
+  get 'upcoming_events', to: 'home#upcoming_events'
+  get 'sign_up', to: 'home#sign_up'
   resources :game_event_relations
   resources :events
   resources :games
