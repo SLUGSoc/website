@@ -14,28 +14,53 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to 'Home', root_path, class: 'nav-link' %>
+        <%= link_to root_path, class: 'nav-link' do %>
+          <%= icon('fas', 'home') %>
+          Home
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Events', home_upcoming_events_path, class: "nav-link" %>
+        <%= link_to home_upcoming_events_path, class: "nav-link" do %>
+          <%= icon('fas', 'calendar') %>
+          Events
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to 'LANs', home_lan_path, class: "nav-link" %>
+        <%= link_to home_lan_path, class: "nav-link" do %>
+          <%= icon('fas', 'desktop') %>
+          LANs
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Committee', home_committee_path, class: "nav-link" %>
+        <%= link_to home_committee_path, class: "nav-link" do %>
+          <%= icon('fas', 'users') %>
+          Committee
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Join Us', home_sign_up_path, class: "nav-link" %>
+        <%= link_to home_sign_up_path, class: "nav-link" do %>
+          <%= icon('fas', 'external-link-alt') %>
+          Join Us
+        <% end %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= icon('fas', 'crown') %>
           Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Events', events_path, class: 'dropdown-item' %>
-          <%= link_to 'Games', games_path, class: 'dropdown-item' %>
-          <%= link_to 'Platforms', platforms_path, class: 'dropdown-item' %>
+          <%= link_to events_path, class: 'dropdown-item' do %>
+            <%= icon('fas', 'calendar') %>
+            Events
+          <% end %>
+          <%= link_to games_path, class: 'dropdown-item' do %>
+            <%= icon('fas', 'gamepad') %>
+            Games
+          <% end %>
+          <%= link_to platforms_path, class: 'dropdown-item' do %>
+            <%= icon('fab', 'steam') %>
+            Platforms
+          <% end %>
           <%= link_to 'Add Games to Events', game_event_relations_path, class: 'dropdown-item' %>
           <%= link_to 'Add Games to Platforms', releases_path, class: 'dropdown-item' %>
         </div>
