@@ -1,13 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @platform.name %>
+  <h2><%= icon(*@platform.icon.split) if @platform.icon %> <%= @platform.name %></h2>
 </p>
 
 <p>
-  <strong>Icon:</strong>
-  <%= @platform.icon %>
+  <h2>Games</h2>
+  <% @platform.games.each do |game| %>
+    <%= link_to game.name, edit_game_path(game) %>
+    <% unless game.equal? @platform.games.last %>
+      |
+    <% end %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_platform_path(@platform) %> |
