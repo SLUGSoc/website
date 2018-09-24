@@ -51,15 +51,15 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to events_path, class: 'dropdown-item' do %>
-              <%= icon('fas', 'calendar') %>
+              <%= icon('fas', 'calendar', class: 'fa-fw') %>
               Events
             <% end %>
             <%= link_to games_path, class: 'dropdown-item' do %>
-              <%= icon('fas', 'gamepad') %>
+              <%= icon('fas', 'gamepad', class: 'fa-fw') %>
               Games
             <% end %>
             <%= link_to platforms_path, class: 'dropdown-item' do %>
-              <%= icon('fab', 'steam') %>
+              <%= icon('fab', 'steam', class: 'fa-fw') %>
               Platforms
             <% end %>
             <%= link_to 'Add Games to Events', game_event_relations_path, class: 'dropdown-item' %>
