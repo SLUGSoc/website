@@ -54,3 +54,7 @@ $headings-font-family: Oswald, sans-serif;
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #dc3545;
 }
+
+body {
+  min-height: 100vh;
+}
