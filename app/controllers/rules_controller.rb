@@ -7,7 +7,7 @@ class RulesController < ApplicationController
   # GET /rules
   # GET /rules.json
   def index
-    @rules = Rule.all
+    @codes = Code.all
   end
 
   # GET /rules/1

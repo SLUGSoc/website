@@ -1,25 +1,29 @@
-<h1>Codes</h1>
+<div class="container">
+  <h1>Codes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <% @codes.each do |code| %>
+        <div class="card">
+          <div class="card-body text-dark d-flex flex-row">
+            <h3 class="w-50"><%= code.name %></h3>
+            <div class="btn-group d-flex w-50">
+              <%= link_to code, class: 'w-100 btn btn-info' do %>
+                <%= icon('fas', 'book') %>
+                View Code of Conduct
+              <% end %>
+              <%= link_to edit_code_path(code), class: 'w-100 btn btn-warning' do %>
+                <%= icon('fas', 'edit') %>
+                Rename
+              <% end %>
+              <%= link_to code, class: 'w-100 btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <%= icon('fas', 'trash') %>
+                Delete
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
-  <tbody>
-    <% @codes.each do |code| %>
-      <tr>
-        <td><%= code.name %></td>
-        <td><%= link_to 'Show', code %></td>
-        <td><%= link_to 'Edit', edit_code_path(code) %></td>
-        <td><%= link_to 'Destroy', code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <br>
 
-<br>
-
-<%= link_to 'New Code', new_code_path %>
+  <%= link_to 'New Code', new_code_path %>
+</div>

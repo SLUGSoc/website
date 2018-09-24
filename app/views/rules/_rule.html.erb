@@ -3,6 +3,11 @@
     <a data-toggle="collapse" data-target="#collapse<%= rule.id %>" aria-expanded="false" aria-controls="collapse<%= rule.id %>">
     <h4>
       <%= icon(*rule.icon.split) %> <%= rule.summary %>
+      <% if edit and user_signed_in? %>
+        <%= link_to edit_rule_path(rule) do %>
+          <%= icon('fas', 'edit') %>
+        <% end %>
+      <% end %>
     </h4>
     </a>
   </div>
