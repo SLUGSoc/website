@@ -1,0 +1,11 @@
+AllCops:
+  Exclude:
+    - 'db/**/**'
+    - 'config/**/**'
+    - 'bin/**/**'
+    - 'spec/**/**' # temporary
+Style/Documentation:
+  Exclude:
+    - 'app/helpers/**'
+    - 'app/mailers/**'
+    - 'app/models/application_record.rb'
