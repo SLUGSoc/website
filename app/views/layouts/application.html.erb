@@ -13,21 +13,7 @@
   <body>
     <%= render 'components/nav' %>
     <div class="container-fluid <% unless current_page?(root_path) %>my-3<% end %>">
-      <% if notice %>
-        <div class="container">
-          <div class="alert bg-info" id="notice">
-            <%= notice %>
-          </div>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="container">
-          <div class="alert bg-danger" id="alert">
-            <%= icon('fas', 'exclamation-circle') %>
-            <%= alert %>
-          </div>
-        </div>
-      <% end %>
+      <%= render 'components/notice' unless current_page?(root_path) %>
       <%= yield %>
     </div>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
