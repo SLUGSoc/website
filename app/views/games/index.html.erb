@@ -1,47 +1,49 @@
-<h1>
-  Games
-  <%= link_to new_game_path, class: 'btn btn-success' do %>
-    <%= icon('fas', 'plus-square') %>
-    Create New
-  <% end %>
-</h1>
-
-
-<table class="table table-sm table-borderless">
-  <thead>
-    <tr>
-      <th class="text-right">Name</th>
-      <th class="text-left">Platform</th>
-      <th class="text-center">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td class="align-middle text-right"><%= link_to game.name, game.link %></td>
-        <td class="align-middle text-left">
-          <% game.platforms.each do |platform| %>
-            <span class="badge badge-pill badge-<%= platform.bootstrap_class %>">
-              <%= icon(*platform.icon.split) unless platform.icon.nil? %>
-              <%= platform.name %>
-            </span>
-          <% end %>
-        </td>
-        <td class="align-middle">
-          <div class="btn-group d-flex">
-            <%= link_to game, class: 'btn btn-info w-100' do %>
-              <%= icon('fas', 'info-circle', 'Show') %>
-            <% end %>
-            <%= link_to edit_game_path(game), class: 'btn btn-warning w-100' do %>
-              <%= icon('fas', 'edit', 'Edit') %>
-            <% end %>
-            <%= link_to game, class: 'btn btn-danger w-100', method: :delete, data: { confirm: "Are you sure you want to delete #{game.name} from the games list?" } do %>
-              <%= icon('fas', 'trash', 'Delete') %>
-            <% end %>
-          </div>
-        </td>
-      </tr>
+<div class="container">
+  <h1>
+    Games
+    <%= link_to new_game_path, class: 'btn btn-success' do %>
+      <%= icon('fas', 'plus-square') %>
+      Create New
     <% end %>
-  </tbody>
-</table>
+  </h1>
+
+
+  <table class="table table-sm table-borderless">
+    <thead>
+      <tr>
+        <th class="text-right">Name</th>
+        <th class="text-left">Platform</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @games.each do |game| %>
+        <tr>
+          <td class="align-middle text-right"><%= link_to game.name, game.link %></td>
+          <td class="align-middle text-left">
+            <% game.platforms.each do |platform| %>
+              <span class="badge badge-pill badge-<%= platform.bootstrap_class %>">
+                <%= icon(*platform.icon.split) unless platform.icon.nil? %>
+                <%= platform.name %>
+              </span>
+            <% end %>
+          </td>
+          <td class="align-middle">
+            <div class="btn-group d-flex">
+              <%= link_to game, class: 'btn btn-info w-100' do %>
+                <%= icon('fas', 'info-circle', 'Show') %>
+              <% end %>
+              <%= link_to edit_game_path(game), class: 'btn btn-warning w-100' do %>
+                <%= icon('fas', 'edit', 'Edit') %>
+              <% end %>
+              <%= link_to game, class: 'btn btn-danger w-100', method: :delete, data: { confirm: "Are you sure you want to delete #{game.name} from the games list?" } do %>
+                <%= icon('fas', 'trash', 'Delete') %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
