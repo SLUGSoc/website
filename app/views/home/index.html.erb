@@ -82,15 +82,15 @@
   </div>
 </section>
 <section>
-  <div class="row px-5 pt-5 d-flex align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/COMMITTEE-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.7);">
+  <div class="row px-5 pt-5 d-flex align-items-center justify-content-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/COMMITTEE-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
+    <div class="p-3 text-center" style="background-color: rgba(0, 0, 0, 0.7);">
       <h2>Our committee loves games!</h2>
       <p class="lead">Our committee loves games just as much as the rest of the society! They share many roles - arranging events, setting them up, providing food and consoles, and more. Head <%= link_to 'here', committee_path %> to see what they're all about.</p>
       <%= link_to 'Learn More', committee_path, class: 'btn btn-lg btn-secondary' %>
     </div>
   </div>
-  <div class="row px-5 pt-5 d-flex align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/SOCIAL_FUN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
-    <div class="mx-auto p-3 text-center" style="background-color: rgba(0, 0, 0, 0.7);">
+  <div class="row px-5 pt-5 d-flex align-items-center justify-content-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/SOCIAL_FUN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
+    <div class="p-3 text-center" style="background-color: rgba(0, 0, 0, 0.7);">
       <h2>Want to join SLUGS? Here's how...</h2>
       <p class="lead">If you're a university student, sign up <b><%= link_to 'here', sign_up_path %></b>. If not, why not <b> <%= link_to 'join our Discord server', @discord_invite_link, class: 'text-discord' %></b> and get involved?</p>
       <div class="btn-group d-flex-inline mb-3">
@@ -99,16 +99,16 @@
       </div>
     </div>
   </div>
-  <div class="row px-5 pt-5 d-flex text-center align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/LAN64-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
-    <div class="mx-auto p-3" style="background-color: rgba(0, 0, 0, 0.7);">
+  <div class="row px-5 pt-5 d-flex align-items-center justify-content-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/LAN64-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
+    <div class="p-3 text-center " style="background-color: rgba(0, 0, 0, 0.7);">
       <h2>Feeling LANxious?</h2>
       <p class="lead">Never been to a LAN before? LANs are exciting weekend-long events, and they're the perfect opportunity to play games all weekend with your friends! Bring your desktops or consoles along and have a blast!</p>
       <p class="lead">Still feeling uncertain? Head this way to get the lowdown on LANs (and, importantly, read the rules).</p>
       <%= link_to 'Learn More', lan_path, class: 'btn btn-lg btn-secondary' %>
     </div>
   </div>
-  <div class="row px-5 pt-5 d-flex text-center align-items-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/TOURNEY_WIN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
-    <div class="mx-auto p-3" style="background-color: rgba(0, 0, 0, 0.7);">
+  <div class="row px-5 pt-5 d-flex align-items-center justify-content-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/TOURNEY_WIN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
+    <div class="p-3 text-center" style="background-color: rgba(0, 0, 0, 0.7);">
       <h2>A massive thanks to our sponsors!</h2>
       <p class="lead">We have our sponsors to thank for the success of our events. Follow the links below to check them out!</p>
       <%= render @sponsors %>
