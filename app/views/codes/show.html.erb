@@ -1,7 +1,7 @@
-<p>
-  <strong>Name:</strong>
-  <%= @code.name %>
-</p>
+<div class="container">
+  <h1><%= @code.name %></h1>
+  <%= render @code, edit: true %>
 
-<%= link_to 'Edit', edit_code_path(@code) %> |
-<%= link_to 'Back', codes_path %>
+  <%= link_to 'Rename', edit_code_path(@code) %> |
+  <%= link_to 'Back', codes_path %>
+</div>
