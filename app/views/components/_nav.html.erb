@@ -38,12 +38,6 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to sign_up_path, class: "nav-link #{active?(sign_up_path)}" do %>
-          <%= icon('fas', 'external-link-alt') %>
-          Join Us
-        <% end %>
-      </li>
-      <li class="nav-item">
         <%= link_to contact_us_path, class: "nav-link #{active?(contact_us_path)}" do %>
           <%= icon('fas', 'envelope') %>
           Contact Us
@@ -71,6 +65,12 @@
             <%= link_to 'Add Games to Events', game_event_relations_path, class: 'dropdown-item' %>
             <%= link_to 'Add Games to Platforms', releases_path, class: 'dropdown-item' %>
           </div>
+        </li>
+        <li class="nav-item mr-1">
+          <%= link_to sign_up_path, class: "nav-link #{active?(sign_up_path)} btn btn-students-union" do %>
+            <%= icon('fas', 'external-link-alt') %>
+            Join Us
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to destroy_user_session_path, method: :delete, class: "nav-link btn btn-danger" do %>
