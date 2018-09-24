@@ -43,28 +43,36 @@
           Join Us
         <% end %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= icon('fas', 'crown') %>
-          Admin
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to events_path, class: 'dropdown-item' do %>
-            <%= icon('fas', 'calendar') %>
-            Events
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= icon('fas', 'crown') %>
+            Admin
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to events_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'calendar') %>
+              Events
+            <% end %>
+            <%= link_to games_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'gamepad') %>
+              Games
+            <% end %>
+            <%= link_to platforms_path, class: 'dropdown-item' do %>
+              <%= icon('fab', 'steam') %>
+              Platforms
+            <% end %>
+            <%= link_to 'Add Games to Events', game_event_relations_path, class: 'dropdown-item' %>
+            <%= link_to 'Add Games to Platforms', releases_path, class: 'dropdown-item' %>
+          </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link btn btn-danger" do %>
+            <%= icon('fas', 'sign-out-alt') %>
+            Sign Out
           <% end %>
-          <%= link_to games_path, class: 'dropdown-item' do %>
-            <%= icon('fas', 'gamepad') %>
-            Games
-          <% end %>
-          <%= link_to platforms_path, class: 'dropdown-item' do %>
-            <%= icon('fab', 'steam') %>
-            Platforms
-          <% end %>
-          <%= link_to 'Add Games to Events', game_event_relations_path, class: 'dropdown-item' %>
-          <%= link_to 'Add Games to Platforms', releases_path, class: 'dropdown-item' %>
-        </div>
-      </li>
+        </li>
+      <% end %>
     </ul>
     <ul class="navbar-nav ml-auto text-center">
       <form class="form-inline mr-3">
