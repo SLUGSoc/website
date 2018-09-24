@@ -1,5 +1,6 @@
 class RulesController < ApplicationController
-  before_action :set_rule, only: [:show, :edit, :update, :destroy]
+  before_action :set_rule, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /rules
   # GET /rules.json

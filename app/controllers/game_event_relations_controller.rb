@@ -1,5 +1,6 @@
 class GameEventRelationsController < ApplicationController
-  before_action :set_game_event_relation, only: [:show, :edit, :update, :destroy]
+  before_action :set_game_event_relation, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /game_event_relations
   # GET /game_event_relations.json

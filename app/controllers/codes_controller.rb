@@ -1,5 +1,6 @@
 class CodesController < ApplicationController
-  before_action :set_code, only: [:show, :edit, :update, :destroy]
+  before_action :set_code, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /codes
   # GET /codes.json

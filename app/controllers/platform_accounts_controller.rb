@@ -1,5 +1,6 @@
 class PlatformAccountsController < ApplicationController
-  before_action :set_platform_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_platform_account, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /platform_accounts
   # GET /platform_accounts.json
