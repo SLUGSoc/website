@@ -1,5 +1,11 @@
 <div class="container">
-  <h1>Games We're Running</h1>
+  <h1>
+    Games We're Running
+    <%= link_to new_game_event_relation_path, class: 'btn btn-success' do %>
+      <%= icon('fas', 'plus-square') %>
+      Add New
+    <% end %>
+  </h1>
 
   <table class="table table-borderless table-sm w-auto">
     <tbody>
@@ -25,8 +31,4 @@
       <% end %>
     </tbody>
   </table>
-
-  <br>
-
-  <%= link_to 'New Game/Event Relation', new_game_event_relation_path %>
 </div>

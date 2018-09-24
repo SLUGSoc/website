@@ -1,29 +1,31 @@
 <div class="container">
-  <h1>Codes</h1>
+  <h1>
+    Codes of Conduct
+    <%= link_to new_code_path, class: 'btn btn-success' do %>
+      <%= icon('fas', 'plus-square') %>
+      Create New
+    <% end %>
+  </h1>
 
-      <% @codes.each do |code| %>
-        <div class="card">
-          <div class="card-body text-dark d-flex flex-row">
-            <h3 class="w-50"><%= code.name %></h3>
-            <div class="btn-group d-flex w-50">
-              <%= link_to code, class: 'w-100 btn btn-info' do %>
-                <%= icon('fas', 'book') %>
-                View Code of Conduct
-              <% end %>
-              <%= link_to edit_code_path(code), class: 'w-100 btn btn-warning' do %>
-                <%= icon('fas', 'edit') %>
-                Rename
-              <% end %>
-              <%= link_to code, class: 'w-100 btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <%= icon('fas', 'trash') %>
-                Delete
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-  <br>
-
-  <%= link_to 'New Code', new_code_path %>
+  <% @codes.each do |code| %>
+  <div class="card">
+    <div class="card-body text-dark d-flex flex-row">
+      <h3 class="w-50"><%= code.name %></h3>
+      <div class="btn-group d-flex w-50">
+        <%= link_to code, class: 'w-100 btn btn-info' do %>
+        <%= icon('fas', 'book') %>
+        View Code of Conduct
+        <% end %>
+        <%= link_to edit_code_path(code), class: 'w-100 btn btn-warning' do %>
+        <%= icon('fas', 'edit') %>
+        Rename
+        <% end %>
+        <%= link_to code, class: 'w-100 btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= icon('fas', 'trash') %>
+        Delete
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>

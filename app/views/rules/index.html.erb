@@ -1,9 +1,11 @@
 <div class="container">
-  <h1>Rules</h1>
+  <h1>
+    Rules
+    <%= link_to new_rule_path, class: 'btn btn-success' do %>
+      <%= icon('fas', 'plus-square') %>
+      Create New
+    <% end %>
+  </h1>
 
   <%= render @codes, edit: true %>
-
-  <br>
-
-  <%= link_to 'New Rule', new_rule_path %>
 </div>

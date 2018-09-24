@@ -1,27 +1,31 @@
-<h1>Releases</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Game</th>
-      <th>Platform</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @releases.each do |release| %>
-      <tr>
-        <td><%= release.game.name %></td>
-        <td><%= icon(*release.platform.icon.split) unless release.platform.icon.nil?  %></td>
-        <td><%= link_to 'Show', release %></td>
-        <td><%= link_to 'Edit', edit_release_path(release) %></td>
-        <td><%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="container">
+  <h1>
+    Releases
+    <%= link_to new_release_path, class: 'btn btn-success' do %>
+      <%= icon('fas', 'plus-square') %>
+      Add New
     <% end %>
-  </tbody>
-</table>
+  </h1>
 
-<br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Game</th>
+        <th>Platform</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<%= link_to 'New Release', new_release_path %>
+    <tbody>
+      <% @releases.each do |release| %>
+        <tr>
+          <td><%= release.game.name %></td>
+          <td><%= icon(*release.platform.icon.split) unless release.platform.icon.nil?  %></td>
+          <td><%= link_to 'Show', release %></td>
+          <td><%= link_to 'Edit', edit_release_path(release) %></td>
+          <td><%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
