@@ -14,31 +14,31 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to root_path, class: 'nav-link' do %>
+        <%= link_to root_path, class: "nav-link #{active?(root_path)}" do %>
           <%= icon('fas', 'home') %>
           Home
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to upcoming_events_path, class: "nav-link" do %>
+        <%= link_to upcoming_events_path, class: "nav-link #{active?(upcoming_events_path)}" do %>
           <%= icon('fas', 'calendar') %>
           Events
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to lan_path, class: "nav-link" do %>
+        <%= link_to lan_path, class: "nav-link #{active?(lan_path)}" do %>
           <%= icon('fas', 'desktop') %>
           LANs
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to committee_path, class: "nav-link" do %>
+        <%= link_to committee_path, class: "nav-link #{active?(committee_path)}" do %>
           <%= icon('fas', 'users') %>
           Committee
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to sign_up_path, class: "nav-link" do %>
+        <%= link_to sign_up_path, class: "nav-link #{active?(sign_up_path)}" do %>
           <%= icon('fas', 'external-link-alt') %>
           Join Us
         <% end %>

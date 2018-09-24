@@ -11,4 +11,10 @@ module ApplicationHelper
       t("#{controller_path.tr('/', '.')}.#{action_name}.title", default: :site_name)
     end
   end
+
+  def active?(path)
+    return 'active' if path == request.path
+
+    ''
+  end
 end
