@@ -40,6 +40,8 @@ gem 'faraday'
 gem 'twitter'
 # Use Koala to post to and retrieve from Facebook account
 gem 'koala'
+# Use Devise to manage users
+gem 'devise'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
