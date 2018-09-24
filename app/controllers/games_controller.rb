@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -10,8 +12,7 @@ class GamesController < ApplicationController
 
   # GET /games/1
   # GET /games/1.json
-  def show
-  end
+  def show; end
 
   # GET /games/new
   def new
@@ -19,8 +20,7 @@ class GamesController < ApplicationController
   end
 
   # GET /games/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /games
   # POST /games.json
@@ -63,13 +63,14 @@ class GamesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = Game.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def game_params
-      params.require(:game).permit(:name, :platform, :link)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_game
+    @game = Game.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def game_params
+    params.require(:game).permit(:name, :platform, :link)
+  end
 end

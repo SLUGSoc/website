@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlatformAccountsController < ApplicationController
   before_action :set_platform_account, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -10,8 +12,7 @@ class PlatformAccountsController < ApplicationController
 
   # GET /platform_accounts/1
   # GET /platform_accounts/1.json
-  def show
-  end
+  def show; end
 
   # GET /platform_accounts/new
   def new
@@ -19,8 +20,7 @@ class PlatformAccountsController < ApplicationController
   end
 
   # GET /platform_accounts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /platform_accounts
   # POST /platform_accounts.json
@@ -63,13 +63,14 @@ class PlatformAccountsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_platform_account
-      @platform_account = PlatformAccount.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def platform_account_params
-      params.require(:platform_account).permit(:platform_id, :member_id, :tag, :internal_link)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_platform_account
+    @platform_account = PlatformAccount.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def platform_account_params
+    params.require(:platform_account).permit(:platform_id, :member_id, :tag, :internal_link)
+  end
 end

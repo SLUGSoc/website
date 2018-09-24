@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReleasesController < ApplicationController
   before_action :set_release, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -10,8 +12,7 @@ class ReleasesController < ApplicationController
 
   # GET /releases/1
   # GET /releases/1.json
-  def show
-  end
+  def show; end
 
   # GET /releases/new
   def new
@@ -19,8 +20,7 @@ class ReleasesController < ApplicationController
   end
 
   # GET /releases/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /releases
   # POST /releases.json
@@ -63,13 +63,14 @@ class ReleasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_release
-      @release = Release.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def release_params
-      params.require(:release).permit(:game_id, :platform_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_release
+    @release = Release.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def release_params
+    params.require(:release).permit(:game_id, :platform_id)
+  end
 end

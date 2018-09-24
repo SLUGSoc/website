@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CodesController < ApplicationController
   before_action :set_code, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -10,8 +12,7 @@ class CodesController < ApplicationController
 
   # GET /codes/1
   # GET /codes/1.json
-  def show
-  end
+  def show; end
 
   # GET /codes/new
   def new
@@ -19,8 +20,7 @@ class CodesController < ApplicationController
   end
 
   # GET /codes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /codes
   # POST /codes.json
@@ -63,13 +63,14 @@ class CodesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_code
-      @code = Code.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def code_params
-      params.require(:code).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_code
+    @code = Code.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def code_params
+    params.require(:code).permit(:name)
+  end
 end

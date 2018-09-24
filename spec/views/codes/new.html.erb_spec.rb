@@ -1,18 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "codes/new", type: :view do
+RSpec.describe 'codes/new', type: :view do
   before(:each) do
     assign(:code, Code.new(
-      :name => "MyString"
-    ))
+                    name: 'MyString'
+                  ))
   end
 
-  it "renders new code form" do
+  it 'renders new code form' do
     render
 
-    assert_select "form[action=?][method=?]", codes_path, "post" do
-
-      assert_select "input[name=?]", "code[name]"
+    assert_select 'form[action=?][method=?]', codes_path, 'post' do
+      assert_select 'input[name=?]', 'code[name]'
     end
   end
 end

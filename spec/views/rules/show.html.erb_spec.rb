@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "rules/show", type: :view do
+RSpec.describe 'rules/show', type: :view do
   before(:each) do
     @rule = assign(:rule, Rule.create!(
-      :code => nil,
-      :summary => "Summary",
-      :full => "Full",
-      :icon => "Icon"
-    ))
+                            code: nil,
+                            summary: 'Summary',
+                            full: 'Full',
+                            icon: 'Icon'
+                          ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(//)
     expect(rendered).to match(/Summary/)

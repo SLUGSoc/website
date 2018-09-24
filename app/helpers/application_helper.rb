@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def title
     if content_for?(:title)
@@ -6,7 +8,7 @@ module ApplicationHelper
     else
       # look up translation key based on controller path, action name and .title
       # this works identical to the built-in lazy lookup
-      t("#{ controller_path.tr('/', '.') }.#{ action_name }.title", default: :site_name)
+      t("#{controller_path.tr('/', '.')}.#{action_name}.title", default: :site_name)
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -7,7 +9,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'yaml'
 sponsor_seed_file = Rails.root.join('db', 'sponsors.yml')
-sponsors = YAML::load_file(sponsor_seed_file)
+sponsors = YAML.load_file(sponsor_seed_file)
 sponsors.each do |sponsor|
   Sponsor.create(
     name: sponsor['name'],
@@ -19,7 +21,7 @@ sponsors.each do |sponsor|
   )
 end
 platform_seed_file = Rails.root.join('db', 'platforms.yml')
-platforms = YAML::load_file(platform_seed_file)
+platforms = YAML.load_file(platform_seed_file)
 platforms.each do |platform|
   Platform.create(
     name: platform['name'],
@@ -27,7 +29,7 @@ platforms.each do |platform|
   )
 end
 game_seed_file = Rails.root.join('db', 'games.yml')
-games = YAML::load_file(game_seed_file)
+games = YAML.load_file(game_seed_file)
 games.each do |game|
   internal_game = Game.create(
     name: game['title'],
@@ -40,7 +42,7 @@ games.each do |game|
 end
 lan_code_of_conduct = Code.find_or_create_by(name: 'LAN Rules')
 rule_seed_file = Rails.root.join('db', 'lan_rules.yml')
-rules = YAML::load_file(rule_seed_file)
+rules = YAML.load_file(rule_seed_file)
 internal_rules = rules.map do |rule|
   Rule.create(
     code: lan_code_of_conduct,
@@ -50,7 +52,7 @@ internal_rules = rules.map do |rule|
   )
 end
 committee_seed_file = Rails.root.join('db', 'committee.yml')
-committee = YAML::load_file(committee_seed_file)
+committee = YAML.load_file(committee_seed_file)
 committee.each do |member|
   internal_member = Member.create(
     name: member['name'],
@@ -60,8 +62,10 @@ committee.each do |member|
     role: member['role']
   )
   next if member['id'].nil?
+
   member['id'].each do |platform, tag|
     next if platform == 'steam64'
+
     sub_platform = Platform.find_by(name: 'Battle.net') if platform == 'battlenet'
     PlatformAccount.create(
       member: internal_member,

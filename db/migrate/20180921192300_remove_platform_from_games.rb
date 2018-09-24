@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemovePlatformFromGames < ActiveRecord::Migration[5.2]
   def change
     remove_column :games, :platform, :string

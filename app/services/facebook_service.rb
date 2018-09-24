@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookService
   class << self
     def event_to_facebook_post(event)
@@ -6,7 +8,7 @@ module FacebookService
     end
 
     def post_event(event)
-      client.put_picture(event.image_link, {:message => event_to_facebook_post(event)}, ENV.fetch('FACEBOOK_PAGE_ID')) #post as picture with caption
+      client.put_picture(event.image_link, { message: event_to_facebook_post(event) }, ENV.fetch('FACEBOOK_PAGE_ID')) # post as picture with caption
     end
 
     def client
