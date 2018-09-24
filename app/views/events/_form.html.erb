@@ -20,9 +20,9 @@
   <%= form.text_field :facebook_event_id %>
   <%= form.text_field :ticket_link %>
   <%= form.form_group :post_routes, label: { text: "Post to:" } do %>
-    <%= form.check_box :facebook, label: "Facebook", inline: true %>
-    <%= form.check_box :twitter, label: "Twitter", inline: true %>
-    <%= form.check_box :discord, label: "Discord", inline: true %>
+    <%= form.check_box :facebook, label: "Facebook", inline: true, custom: true %>
+    <%= form.check_box :twitter, label: "Twitter", inline: true, custom: true %>
+    <%= form.check_box :discord, label: "Discord", inline: true, custom: true %>
   <% end %>
   <%= form.submit %>
 <% end %>
