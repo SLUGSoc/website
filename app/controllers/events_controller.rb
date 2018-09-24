@@ -32,7 +32,7 @@ class EventsController < ApplicationController
         begin
           FacebookService.post_event(@event) if params['event']['facebook'].to_i.positive?
         rescue Koala::Facebook::ClientError => e
-          flash[:notice] = "Facebook: #{e.inspect}"
+          flash[:alert] = "Facebook: #{e.inspect}"
         end
         TwitterService.post_event(@event) if params['event']['twitter'].to_i.positive?
         DiscordService.post_event(@event) if params['event']['discord'].to_i.positive?
