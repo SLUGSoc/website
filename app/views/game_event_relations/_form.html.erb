@@ -1,4 +1,4 @@
-<%= form_with(model: game_event_relation, local: true) do |form| %>
+<%= bootstrap_form_with(model: game_event_relation, local: true) do |form| %>
   <% if game_event_relation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(game_event_relation.errors.count, "error") %> prohibited this game_event_relation from being saved:</h2>
@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.collection_select :game_id, Game.order(:name),:id,:name, include_blank: true %>
+    <%= form.collection_select :game_id, Game.order(:name),:id,:name, include_blank: false %>
   </div>
 
   <div class="field">
-    <%= form.collection_select :event_id, Event.order(:datetime),:id,:name, include_blank: true %>
+    <%= form.collection_select :event_id, Event.order(:datetime),:id,:name, include_blank: false %>
   </div>
 
   <div class="actions">

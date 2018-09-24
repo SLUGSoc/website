@@ -1,27 +1,32 @@
-<h1>Game Event Relations</h1>
+<div class="container">
+  <h1>Games We're Running</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Game</th>
-      <th>Event</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <table class="table table-borderless table-sm w-auto">
+    <tbody>
+      <% @game_event_relations.each do |game_event_relation| %>
+        <tr>
+          <td>
+            <% if game_event_relation.event.datetime.past? %>
+              We played
+            <% else %>
+              We're playing
+            <% end %>
+          </td>
+          <td class="text-center"><b><%= render game_event_relation.game %></b></td>
+          <td>at</td>
+          <td>
+            <%= link_to game_event_relation.event do %>
+              <%= game_event_relation.event.name %> on <%= game_event_relation.event.datetime.to_s(:short) %>
+            <% end %>
+          </td>
+          <td><%= link_to icon('fas', 'edit'), edit_game_event_relation_path(game_event_relation) %></td>
+          <td><%= link_to icon('fas', 'trash'), game_event_relation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-  <tbody>
-    <% @game_event_relations.each do |game_event_relation| %>
-      <tr>
-        <td><%= game_event_relation.game %></td>
-        <td><%= game_event_relation.event %></td>
-        <td><%= link_to 'Show', game_event_relation %></td>
-        <td><%= link_to 'Edit', edit_game_event_relation_path(game_event_relation) %></td>
-        <td><%= link_to 'Destroy', game_event_relation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <br>
 
-<br>
-
-<%= link_to 'New Game Event Relation', new_game_event_relation_path %>
+  <%= link_to 'New Game/Event Relation', new_game_event_relation_path %>
+</div>
