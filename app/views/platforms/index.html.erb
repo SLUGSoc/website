@@ -1,31 +1,33 @@
-<h1>
-  Platforms
-  <%= link_to new_platform_path, class: 'btn btn-success' do %>
-    <%= icon('fas', 'plus-square') %>
-    Create New
-  <% end %>
-</h1>
+<div class="container">
+  <h1>
+    Platforms
+    <%= link_to new_platform_path, class: 'btn btn-success' do %>
+      <%= icon('fas', 'plus-square') %>
+      Create New
+    <% end %>
+  </h1>
 
-<div class="card-columns">
-  <% @platforms.each do |platform| %>
-    <div class="card border-light bg-dark bg-<%= platform.bootstrap_class %>">
-      <div class="card-body text-center">
-        <%= icon(*platform.icon.split) unless platform.icon.nil? %>
-        <%= platform.name %>
-      </div>
-      <div class="card-footer bg-light">
-        <div class="btn-group d-flex">
-          <%= link_to platform, class: 'btn btn-outline-info w-100' do %>
-            <%= icon('fas', 'info-circle', 'Show') %>
-          <% end %>
-          <%= link_to edit_platform_path(platform), class: 'btn btn-outline-warning w-100' do %>
-            <%= icon('fas', 'edit', 'Edit') %>
-          <% end %>
-          <%= link_to platform, class: 'btn btn-outline-danger w-100', method: :delete, data: { confirm: "Are you sure you want to delete #{platform.name} from the platforms list?" } do %>
-            <%= icon('fas', 'trash', 'Delete') %>
-          <% end %>
+  <div class="card-columns">
+    <% @platforms.each do |platform| %>
+      <div class="card border-light bg-dark bg-<%= platform.bootstrap_class %>">
+        <div class="card-body text-center">
+          <%= icon(*platform.icon.split) unless platform.icon.nil? %>
+          <%= platform.name %>
+        </div>
+        <div class="card-footer bg-light">
+          <div class="btn-group d-flex">
+            <%= link_to platform, class: 'btn btn-outline-info w-100' do %>
+              <%= icon('fas', 'info-circle', 'Show') %>
+            <% end %>
+            <%= link_to edit_platform_path(platform), class: 'btn btn-outline-warning w-100' do %>
+              <%= icon('fas', 'edit', 'Edit') %>
+            <% end %>
+            <%= link_to platform, class: 'btn btn-outline-danger w-100', method: :delete, data: { confirm: "Are you sure you want to delete #{platform.name} from the platforms list?" } do %>
+              <%= icon('fas', 'trash', 'Delete') %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
