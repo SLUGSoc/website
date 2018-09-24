@@ -17,4 +17,6 @@ class HomeController < ApplicationController
   end
 
   def sign_up; end
+
+  def contact_us; end
 end

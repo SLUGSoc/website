@@ -19,12 +19,18 @@ class ApplicationController < ActionController::Base
     "https://twitter.com/#{@twitter_username}"
   end
 
+  def email_address_link
+    "mailto:#{@email_address}"
+  end
+
   def set_social_links
     @discord_invite_code = '0qD2mZ0yB1K8HfOA'
     @facebook_username = 'SLUGSoc'
     @facebook_group_name = 'slugsoc'
     @twitter_username = 'SLUGSoc'
     @society_join_link = 'https://su.sheffield.ac.uk/groups/computer-gaming-society/join'
+    @email_address = 'slugs@sheffield.ac.uk'
+    @email_address_link ||= email_address_link
     @discord_invite_link ||= discord_invite_link
     @facebook_page_link ||= facebook_page_link
     @twitter_page_link ||= twitter_page_link

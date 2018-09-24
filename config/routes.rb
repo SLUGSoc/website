@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'lan', to: 'home#lan'
   get 'upcoming_events', to: 'home#upcoming_events'
   get 'sign_up', to: 'home#sign_up'
+  get 'contact_us', to: 'home#contact_us'
   resources :game_event_relations
   resources :events
   resources :games

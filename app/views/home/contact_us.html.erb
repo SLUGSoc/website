@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Contact Us</h1>
+  <%# TODO: WarioWare Gold gif %>
+  <p>If you'd like to get in touch with us, we're happy to discuss just about anything, from inter-uni eSports collaborations to sponsorship and more.</p>
+  <%= link_to @facebook_page_link, class: 'btn btn-facebook' do %>
+    <%= icon('fab', 'facebook') %>
+    Facebook
+  <% end %>
+  <%= link_to @twitter_page_link, class: 'btn btn-twitter' do %>
+    <%= icon('fab', 'twitter') %>
+    Twitter
+  <% end %>
+  <%= link_to @discord_invite_link, class: 'btn btn-discord' do %>
+    <%= icon('fab', 'discord') %>
+    Discord
+  <% end %>
+  <%= link_to @email_address_link, class: 'btn btn-secondary' do %>
+    <%= icon('fas', 'envelope') %>
+    Email
+  <% end %>
+</div>
