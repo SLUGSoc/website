@@ -1,32 +1,44 @@
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+<div class="container">
+  <div class="card text-dark d-flex flex-row align-items-center">
+    <div class="card-body text-center">
+      <div class="d-flex flex-column">
+        <h1 class="text-center">
+          <%= @event.name %>
+          <small class="text-muted">at <%= @event.location %></small>
+        </h1>
 
-<p>
-  <strong>Date/Time:</strong>
-  <%= @event.datetime %>
-</p>
+        <p>
+          <%= icon('fas', 'clock')%>
+          <%= @event.datetime.to_s(:long_ordinal) %>
+          <%= icon('fas', 'gamepad')%>
+          <%= render @event.games %>
+          <% if user_signed_in? %>
+            <%= link_to edit_event_path(@event), class: 'text-muted' do %>
+              <%= icon('fas', 'edit') %>
+            <% end %>
+          <% end %>
+        </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
+        <p><%= @event.description %></p>
+      </div>
 
-<p>
-  <strong>LAN number:</strong>
-  <%= @event.lan_number %>
-</p>
+      <div class="btn-group mx-auto">
+        <%= link_to @event.facebook_event_link, class: 'btn btn-facebook' do %>
+          <%= icon('fab', 'facebook') %>
+          View on Facebook
+        <% end %>
+        <%= link_to @event.ticket_link, class: 'btn btn-secondary' do %>
+          <%= icon('fas', 'ticket-alt') %>
+          Buy Tickets
+        <% end %>
+      </div>
 
-<p>
-  <strong>Facebook event:</strong>
-  <%= @event.facebook_event_id %>
-</p>
-
-<p>
-  <strong>Ticket link:</strong>
-  <%= @event.ticket_link %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    </div>
+    <%= image_tag @event.image_link %>
+  </div>
+  <% if user_signed_in? %>
+    <%= link_to 'Back To Events', events_path %>
+    |
+  <% end %>
+  <%= link_to 'Back To Upcoming Events', upcoming_events_path %>
+</div>

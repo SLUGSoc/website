@@ -15,6 +15,9 @@
           <th class="text-center"><%= icon('fas', 'map-pin') %></th>
           <td><%= event.location %></td>
         </tr>
+        <tr>
+          <td colspan="2" class="text-center"><%= link_to 'View Event', event, class: 'btn btn-secondary' %></td>
+        </tr>
       </table>
     </div>
     <!-- <%= image_tag event.image_link if event.image_link %> -->

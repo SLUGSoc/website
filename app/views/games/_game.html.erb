@@ -1,0 +1,4 @@
+<a class="badge badge-pill badge-<%= game.platforms.first.bootstrap_class %>" href="<%= game.link %>">
+  <%= icon(*game.platforms.first.icon.split) if game.platforms.first.icon %>
+  <%= game.name %>
+</a>
