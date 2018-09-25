@@ -17,6 +17,10 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    facebook_event = FacebookService.get_event(params[:facebook_event_id]) unless params[:facebook_event_id].blank?
+    @event = Event.new_from_facebook_event(facebook_event) if facebook_event
+  rescue Koala::Facebook::ClientError => e
+    flash[:alert] = "Facebook event could not be retrieved - #{e.message}"
   end
 
   # GET /events/1/edit

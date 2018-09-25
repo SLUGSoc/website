@@ -16,5 +16,9 @@ module FacebookService
       page_token = @user_graph.get_page_access_token(ENV.fetch('FACEBOOK_PAGE_ID'))
       @page_graph ||= Koala::Facebook::API.new(page_token)
     end
+
+    def get_event(facebook_event_id)
+      client.get_object(facebook_event_id, fields: %w[cover name description place start_time])
+    end
   end
 end

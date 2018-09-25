@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'home#sign_up'
   get 'contact_us', to: 'home#contact_us'
   resources :game_event_relations
-  resources :events
+  resources :events do
+    member do
+      get ':facebook_event_id', to: 'events#new'
+    end
+  end
   resources :games
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
