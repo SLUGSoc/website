@@ -9,7 +9,7 @@ module DiscordService
 
     def post_event(event)
       # transmute event into text
-      Faraday.post 'https://discordapp.com/api/webhooks/487712917089681420/Xla57omuu4BRkVp0L72bBWvIozlccDH8v3M1tm43LRgY4EIJb-fKZWMyjg_8B_lI_ORv',
+      Faraday.post ENV.fetch('DISCORD_WEBHOOK_URL'),
                    content: event_to_markdown(event)
     end
   end
