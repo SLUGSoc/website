@@ -14,6 +14,10 @@ conduct for the society and LANs, and more.
 
 ## Installation
 
+First and most importantly, **reset the secret key base**. `config/credentials.yml.enc` is in the repository and, if left unchanged, this may leave the system vulnerable.
+
+Copy the output of `rails secret` and run `rails credentials:edit`. Reset the existing `secret_key_base` to this new value, save, and exit.
+
 Create [Twitter](https://apps.twitter.com/) and [Facebook](https://developers.facebook.com)  developer apps using those services'
 developer sites. They should give you the following credentials, which you should set to these environment variables:
 
