@@ -16,7 +16,8 @@ class RulesController < ApplicationController
 
   # GET /rules/new
   def new
-    @rule = Rule.new
+    code = Code.find_by(id: params[:code])
+    @rule = Rule.new(code: code)
   end
 
   # GET /rules/1/edit

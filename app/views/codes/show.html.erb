@@ -1,5 +1,11 @@
 <div class="container">
-  <h1><%= @code.name %></h1>
+  <h1>
+    <%= @code.name %>
+    <%= link_to new_rule_path(code: @code), class: 'btn btn-success' do %>
+      <%= icon('fas', 'plus-square') %>
+      Create New
+    <% end %>
+  </h1>
   <%= render @code, edit: true %>
 
   <%= link_to 'Rename', edit_code_path(@code) %> |
