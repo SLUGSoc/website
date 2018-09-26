@@ -94,8 +94,14 @@
       <h2>Want to join SLUGS? Here's how...</h2>
       <p class="lead">If you're a university student, sign up <b><%= link_to sign_up_path, class: 'text-students-union' do %>here <%= icon('fas', 'external-link-alt') %><% end %></b>. If not, why not <b> <%= link_to @discord_invite_link, class: 'text-discord' do %>join our Discord server <%= icon('fab', 'discord') %><% end %></b> and get involved?</p>
       <div class="btn-group d-flex-inline mb-3">
-        <%= link_to 'Join SLUGS', sign_up_path, class: 'btn btn-lg btn-secondary' %>
-        <%= link_to 'Join Discord server', @discord_invite_link, class: 'btn btn-lg btn-discord' %> <%# TODO: Discord link %>
+        <%= link_to sign_up_path, class: 'btn btn-lg btn-secondary' do %>
+          <%= icon('fas', 'external-link-alt') %>
+          Sign Up
+        <% end %>
+        <%= link_to @discord_invite_link, class: 'btn btn-lg btn-discord' do %>
+          <%= icon('fab', 'discord') %>
+          Discord
+        <% end %>
       </div>
     </div>
   </div>
