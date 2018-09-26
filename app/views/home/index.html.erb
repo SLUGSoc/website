@@ -11,7 +11,7 @@
           <p>SLUGS is the University of Sheffield society for <b>video games</b>. Whether you've only ever played <i>Wii Sports</i> or <i>League of Legends</i> is more your style, SLUGS welcomes a <b>wide variety of games and players</b>!</p>
           <p>We meet on <b>Tuesdays</b> for drinks and games, and <b>LANs</b> are hosted on a roughly monthly basis.</p>
           <p>
-            <b>Not a member yet?</b> <%= link_to sign_up_path, class: 'text-students-union' do %>Sign up <%= icon('fas', 'external-link-alt') %><% end %> or join our <%= link_to 'Discord server', @discord_invite_link %>!<br />
+          <b>Not a member yet?</b> <%= link_to sign_up_path, class: 'text-students-union' do %>Sign up <%= icon('fas', 'external-link-alt') %><% end %> or join our <%= link_to @discord_invite_link, class: 'text-discord' do %>Discord server <%= icon('fab', 'discord') %><% end %>!<br />
             Read on for a taster of what it's like to game with SLUGS.<br />
             <b>Already a SLUG?</b> <%= link_to 'Check out what\'s coming up.', '#events' %>
           </p>
@@ -92,7 +92,7 @@
   <div class="row px-5 pt-5 d-flex align-items-center justify-content-center" style="min-height: 100vh; background: url(<%= asset_path 'duotone/SOCIAL_FUN-DUOTONE.jpg' %>) no-repeat fixed center; background-size: cover;">
     <div class="p-3 text-center" style="background-color: rgba(0, 0, 0, 0.7);">
       <h2>Want to join SLUGS? Here's how...</h2>
-      <p class="lead">If you're a university student, sign up <b><%= link_to sign_up_path, class: 'text-students-union' do %>here <%= icon('fas', 'external-link-alt') %><% end %></b>. If not, why not <b> <%= link_to 'join our Discord server', @discord_invite_link, class: 'text-discord' %></b> and get involved?</p>
+      <p class="lead">If you're a university student, sign up <b><%= link_to sign_up_path, class: 'text-students-union' do %>here <%= icon('fas', 'external-link-alt') %><% end %></b>. If not, why not <b> <%= link_to @discord_invite_link, class: 'text-discord' do %>join our Discord server <%= icon('fab', 'discord') %><% end %></b> and get involved?</p>
       <div class="btn-group d-flex-inline mb-3">
         <%= link_to 'Join SLUGS', sign_up_path, class: 'btn btn-lg btn-secondary' %>
         <%= link_to 'Join Discord server', @discord_invite_link, class: 'btn btn-lg btn-discord' %> <%# TODO: Discord link %>
