@@ -32,13 +32,7 @@ FACEBOOK_PAGE_ID
 
 You will also want to create a webhook for your Discord server. You can do this under Server Settings > Webhooks if you have the correct permissions. Set the environment variable `DISCORD_WEBHOOK_URL` to this URL.
 
-Run the following:
-
-```
-bundle install # This installs all dependencies
-rails db:setup # This creates and seeds the database with data
-rails s        # This starts the server
-```
+Run `docker-compose up -d` in the directory to expose the site on port 3000 of your local machine.
 
 You'll then be able to access the site at localhost:3000.
 
@@ -58,7 +52,7 @@ In order to change any of this from the frontend, you'll need to go to
 ### Seeding accounts
 
 There is no default account seeded (at present) -
-you'll need to enter the Rails console (`rails c`) and run this command:
+you'll need to enter the Rails console (`docker-compose run web rails c`) and run this command:
 
 ```
 User.create(email: '<your email>', password: '<a secure(!!) password>')
