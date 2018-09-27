@@ -13,3 +13,11 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      - TWITTER_CONSUMER_KEY
+      - TWITTER_CONSUMER_SECRET
+      - TWITTER_ACCESS_TOKEN
+      - TWITTER_ACCESS_TOKEN_SECRET
+      - FACEBOOK_USER_ACCESS_TOKEN
+      - FACEBOOK_PAGE_ID
+      - DISCORD_WEBHOOK_URL
