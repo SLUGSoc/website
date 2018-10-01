@@ -1,13 +1,13 @@
 FROM ruby:2.5.1-alpine
-RUN apk add --update \
+RUN apk -U add \
   build-base \
   mariadb-dev \
   sqlite-dev \
   nodejs \
   tzdata \
+  vim \
   && rm -rf /var/cache/apk*
 RUN gem install bundler
-RUN apt-get update && apt-get install -y vim
 WORKDIR /myapp
 COPY Gemfile* /myapp/
 RUN bundle install
