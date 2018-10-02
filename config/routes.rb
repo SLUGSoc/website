@@ -14,16 +14,13 @@ Rails.application.routes.draw do
     resources :games
     # Some hacky stuff here to allow /admin/events/#{id} while having the rest
     # on #{events}
-    put    'events/:id' => 'events#update'
-    delete 'events/:id' => 'events#destroy'
-    resources :events, except: %i[show update destroy] do
-      member do
-        get ':facebook_event_id', to: 'events#new'
-      end
-    end
+    resources :events, except: %i[show update destroy], path_names: {new: 'new(/:facebook_event_id)' }
   end
-  # resources :events, only: [:show]
+
+  patch    'events/:id' => 'events#update'
+  delete 'events/:id' => 'events#destroy'
   get    'events/:id' => 'events#show', :as => 'event'
+
   get '/', to: 'home#index'
   root 'home#index'
   get 'committee', to: 'home#committee'

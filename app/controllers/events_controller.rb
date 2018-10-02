@@ -17,6 +17,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    p "Facebook event id: #{params[:facebook_event_id]}"
     facebook_event = FacebookService.get_event(params[:facebook_event_id]) unless params[:facebook_event_id].blank?
     @event = Event.new_from_facebook_event(facebook_event) if facebook_event
   rescue Koala::Facebook::ClientError => e
