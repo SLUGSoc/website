@@ -37,17 +37,13 @@
       </div>
       <%# <%= image_tag 'noevents.gif', class: 'w-100'%>
     </div>
-  <% end %>
-  <div class="row">
-    <% @events.each do |event| %>
-    <div class="col-md">
-      <%= render event %>
-      <% unless event == @events.last %>
-        <hr class="d-md-none border-light">
-      <% end %>
+  <% else %>
+    <div class="container mx-auto d-flex align-items-center h-100">
+      <div class="card-deck" style="flex-basis: 0; flex-grow: 1">
+        <%= render @events %>
+      </div>
     </div>
-    <% end %>
-  </div>
+  <% end %>
 </section>
 <section id="summary">
   <div class="row">
