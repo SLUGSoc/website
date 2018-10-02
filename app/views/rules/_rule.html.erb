@@ -1,8 +1,8 @@
-<div class="card bg-danger text-light">
+<div class="card bg-light text-dark">
   <div class="card-header pb-0" id="heading<%= rule.id %>">
     <a data-toggle="collapse" data-target="#collapse<%= rule.id %>" aria-expanded="false" aria-controls="collapse<%= rule.id %>">
     <h4>
-      <%= icon(*rule.icon.split) %> <%= rule.summary %>
+      <%= icon(*rule.icon.split, class: 'fa-fw') %> <%= rule.summary %>
       <% if edit and user_signed_in? %>
         <%= link_to edit_rule_path(rule) do %>
           <%= icon('fas', 'edit') %>
@@ -13,6 +13,6 @@
   </div>
 
   <div id="collapse<%= rule.id %>" class="collapse" aria-labelledby="heading<%= rule.id %>" data-parent="#lanRulesAccordion">
-    <div class="card-body text-body"><%= rule.full %></div>
+    <div class="card-body text-dark"><%= rule.full %></div>
   </div>
 </div>
