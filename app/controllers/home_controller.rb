@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     @rules ||= Code.find_by(name: 'LAN Rules')
   end
 
-  def upcoming_events
+  def events
     @events ||= Event.all_future
   end
 

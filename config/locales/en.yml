@@ -33,7 +33,7 @@ en:
   hello: "Hello world"
   site_name: "SLUGS - Sheffield University Gaming Society"
   home:
-    upcoming_events:
+    events:
       title: "Events - SLUGS - Sheffield University Gaming Society"
     lan:
       title: "LAN Events - SLUGS - Sheffield University Gaming Society"
