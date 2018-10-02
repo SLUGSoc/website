@@ -24,13 +24,17 @@
     <div class="w-50" style="height: inherit; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url(<%= asset_path event.image_link %>); background-position: center center; background-size: cover;"></div>
   </div>
   <div class="card-footer row no-gutters p-0 text-light text-center">
-    <%= link_to event.facebook_event_link, class: "col bg-facebook" do %>
-        <%= icon('fab', 'facebook') %> View on Facebook
+    <% unless event.facebook_event_id.blank? %>
+      <%= link_to event.facebook_event_link, class: "col bg-facebook" do %>
+          <%= icon('fab', 'facebook') %> View on Facebook
+      <% end %>
     <% end %>
-    <%= link_to event.ticket_link, class: "col bg-secondary" do %>
-      <div class="col bg-secondary">
-          <%= icon('fas', 'ticket-alt') %> Buy Ticket
-      </div>
+    <% unless event.ticket_link.blank? %>
+      <%= link_to event.ticket_link, class: "col bg-secondary" do %>
+        <div class="col bg-secondary">
+            <%= icon('fas', 'ticket-alt') %> Buy Ticket
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
