@@ -20,30 +20,33 @@
     </div>
   </div>
 </section>
-<section id="events" class="my-5" style="min-height: 50vh;">
-  <div class="d-flex flex-column flex-md-row align-items-center">
+<section id="events" class="my-5 d-flex flex-column justify-content-center" style="min-height: 50vh;">
+  <div class="mb-auto d-flex flex-column flex-md-row w-100">
     <h1>Upcoming Events</h1>
-    <div class="ml-md-auto">
-      <%= link_to 'All Socials', events_path, class: 'btn btn-secondary ml-3' %>
-      <%= link_to 'Events on Facebook', "#{@facebook_page_link}/events", class: 'btn btn-facebook ml-3' %>
+    <div class="ml-md-auto text-center">
+      <div class="btn-group d-flex-inline">
+        <%= link_to upcoming_events_path, class: 'btn btn-secondary' do %>
+          <%= icon('fas', 'calendar-alt') %>
+          <span class="d-none d-md-inline">All</span> Socials
+        <% end %>
+        <%= link_to "#{@facebook_page_link}/events", class: 'btn btn-facebook' do %>
+          <%= icon('fab', 'facebook') %>
+          <span class="d-none d-md-inline">Events</span> on Facebook
+        <% end %>
+      </div>
     </div>
   </div>
-  <hr class="border-light">
-  <% if @events.count == 0 %>
-    <div class="container h-100 d-flex align-items-center justify-content-center flex-column">
-      <div class="alert alert-info w-50">
-        <%= icon('fas', 'info-circle') %>
-        No events scheduled for now.
-      </div>
-      <%# <%= image_tag 'noevents.gif', class: 'w-100'%>
-    </div>
-  <% else %>
-    <div class="container mx-auto d-flex align-items-center h-100">
-      <div class="card-deck" style="flex-basis: 0; flex-grow: 1">
+  <div class="container d-flex align-items-center justify-content-center flex-column my-auto">
+    <% if @events.count == 0 %>
+      <%= image_tag 'noevents.gif', class: 'w-100', style: 'filter: blur(1px) drop-shadow(1px 1px 1px black) grayscale(100%); max-height: 200px; width: auto; object-fit: contain;'%>
+      <h4 class="text-center">No one's around to help.</h4>
+      <p class="text-center">We don't have any games listed right now. Check back soon for more details!</p>
+    <% else %>
+      <div class="card-deck my-auto w-100" style="flex-basis: 0; flex-grow: 1">
         <%= render @events %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </section>
 <section id="summary">
   <div class="row">
