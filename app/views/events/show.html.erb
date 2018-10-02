@@ -1,41 +1,41 @@
 <div class="container">
-  <div class="card text-dark d-flex flex-row align-items-center">
+  <div class="card text-dark">
     <div class="card-body text-center">
-      <div class="d-flex flex-column">
-        <h1 class="text-center">
-          <%= @event.name %>
-          <small class="text-muted">at <%= @event.location %></small>
-        </h1>
-
-        <p>
-          <%= icon('fas', 'clock')%>
-          <%= @event.datetime.to_s(:long_ordinal) %>
-          <%= icon('fas', 'gamepad')%>
-          <%= render @event.games %>
-          <% if user_signed_in? %>
-            <%= link_to edit_event_path(@event), class: 'text-muted' do %>
-              <%= icon('fas', 'edit') %>
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
+        <div class="d-flex flex-column mx-auto" style="flex-basis: 0; flex-grow: 1;">
+          <h1 class="text-center">
+            <%= @event.name %>
+            <small class="text-muted">at <%= @event.location %></small>
+          </h1>
+          <p>
+            <%= icon('fas', 'clock')%>
+            <%= @event.datetime.to_s(:long_ordinal) %>
+            <%= icon('fas', 'gamepad')%>
+            <%= render @event.games %>
+            <% if user_signed_in? %>
+              <%= link_to edit_event_path(@event), class: 'text-muted' do %>
+                <%= icon('fas', 'edit') %>
+              <% end %>
             <% end %>
-          <% end %>
-        </p>
-
-        <p><%= simple_format(@event.description) %></p>
-      </div>
-
-      <div class="btn-group mx-auto">
-        <%= link_to @event.facebook_event_link, class: 'btn btn-facebook' do %>
-          <%= icon('fab', 'facebook') %>
-          View on Facebook
-        <% end %>
-        <%= link_to @event.ticket_link, class: 'btn btn-secondary' do %>
-          <%= icon('fas', 'ticket-alt') %>
-          Buy Tickets
-        <% end %>
+          </p>
+          <p><%= simple_format(@event.description) %></p>
+          <div class="btn-group mx-auto">
+            <%= link_to @event.facebook_event_link, class: 'btn btn-facebook' do %>
+              <%= icon('fab', 'facebook') %>
+              <span class="d-none d-md-inline">View on Facebook</span>
+            <% end %>
+            <%= link_to @event.ticket_link, class: 'btn btn-secondary' do %>
+              <%= icon('fas', 'ticket-alt') %>
+              <span class="d-none d-md-inline">Buy Tickets</span>
+            <% end %>
+          </div>
+        </div>
+        <%= image_tag @event.image_link, class: 'pt-3 pt-md-0 mx-auto', style: "flex-basis: 0; flex-grow: 1;" unless @event.image_link.blank? %>
       </div>
 
     </div>
-    <%= image_tag @event.image_link %>
   </div>
+
   <% if user_signed_in? %>
     <%= link_to 'Back To Events', events_path %>
     |
