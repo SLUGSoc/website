@@ -8,6 +8,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'yaml'
+server_seed_file = Rails.root.join('db', 'servers.yml')
+servers = YAML.load_file(server_seed_file)
+servers.each do |server|
+  Server.create(
+    game: Game.find_or_create_by(name: server['game']),
+    port: server['port'],
+  )
+end
 sponsor_seed_file = Rails.root.join('db', 'sponsors.yml')
 sponsors = YAML.load_file(sponsor_seed_file)
 sponsors.each do |sponsor|

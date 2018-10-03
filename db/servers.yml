@@ -1,0 +1,12 @@
+- game: TrackMania Canyon     
+  port: 2350
+- game: Garry's Mod
+  port: 27018
+- game: Team Fortress 2
+  port: 27025
+- game: Left 4 Dead 2
+  port: 27025
+- game: Minecraft (FTB) - Revelations
+  port: 25565
+- game: Minecraft (FTB) - Sky Factory
+  port: 25566
