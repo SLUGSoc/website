@@ -9,8 +9,8 @@
           </h1>
           <p>
             <%= icon('fas', 'clock')%>
-            <%= @event.datetime.to_s(:long_ordinal) %>
-            <%= icon('fas', 'gamepad')%>
+            <%= @event.datetime.to_s(:long_ordinal) %>-<%= @event.end_datetime&.to_s(:long_ordinal) %>
+            <%= icon('fas', 'gamepad') unless @event.games.blank? %>
             <%= render @event.games %>
             <% if user_signed_in? %>
               <%= link_to edit_event_path(@event), class: 'text-muted' do %>

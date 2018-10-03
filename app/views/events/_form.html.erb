@@ -14,7 +14,8 @@
   <%= form.text_field :name %>
   <%= form.text_area :description %>
   <%= form.text_field :image_link %>
-  <%= form.datetime_select :datetime, label: 'Date/Time' %>
+  <%= form.datetime_select :datetime, label: 'Start Date/Time' %>
+  <%= form.datetime_select :end_datetime, label: 'End Date/Time' %>
   <%= form.text_field :location %>
   <%= form.number_field :lan_number, label: 'LAN Number'  %>
   <%= form.text_field :facebook_event_id %>
