@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Module for posting events to Discord.
 module DiscordService
   class << self
     def event_to_markdown(event)

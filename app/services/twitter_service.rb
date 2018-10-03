@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
+# Module for posting to Twitter.
 module TwitterService
   class << self
     def event_to_tweet(event)
-      template = ERB.new(File.read(Rails.root.join('app', 'views', 'events', '_event.twitter.erb')))
+      template = ERB.new(File.read(
+                           Rails.root.join('app', 'views', 'events',
+                                           '_event.twitter.erb')
+                         ))
       template.result(binding)
     end
 
@@ -12,7 +16,7 @@ module TwitterService
     end
 
     def client
-      client ||= Twitter::REST::Client.new do |config|
+      @client ||= Twitter::REST::Client.new do |config|
         config.consumer_key        = ENV.fetch('TWITTER_CONSUMER_KEY')
         config.consumer_secret     = ENV.fetch('TWITTER_CONSUMER_SECRET')
         config.access_token        = ENV.fetch('TWITTER_ACCESS_TOKEN')

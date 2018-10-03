@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Controller for Rule model. Has standard CRUD endpoints for Rules.
+# Rules are part of a Code and outline rules society members should abide by.
 class RulesController < ApplicationController
   before_action :set_rule, only: %i[show edit update destroy]
   before_action :authenticate_user!

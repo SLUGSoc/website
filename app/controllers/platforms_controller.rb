@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Controller for Platform model. Has standard CRUD endpoints for Platforms.
+# Platforms represent game platforms such as Steam and consoles.
 class PlatformsController < ApplicationController
   before_action :set_platform, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -29,11 +31,17 @@ class PlatformsController < ApplicationController
 
     respond_to do |format|
       if @platform.save
-        format.html { redirect_to @platform, notice: 'Platform was successfully created.' }
+        format.html do
+          redirect_to @platform,
+                      notice: 'Platform was successfully created.'
+        end
         format.json { render :show, status: :created, location: @platform }
       else
         format.html { render :new }
-        format.json { render json: @platform.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @platform.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -43,11 +51,17 @@ class PlatformsController < ApplicationController
   def update
     respond_to do |format|
       if @platform.update(platform_params)
-        format.html { redirect_to @platform, notice: 'Platform was successfully updated.' }
+        format.html do
+          redirect_to @platform,
+                      notice: 'Platform was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @platform }
       else
         format.html { render :edit }
-        format.json { render json: @platform.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @platform.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -57,7 +71,10 @@ class PlatformsController < ApplicationController
   def destroy
     @platform.destroy
     respond_to do |format|
-      format.html { redirect_to platforms_url, notice: 'Platform was successfully destroyed.' }
+      format.html do
+        redirect_to platforms_url,
+                    notice: 'Platform was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
@@ -69,7 +86,8 @@ class PlatformsController < ApplicationController
     @platform = Platform.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
   def platform_params
     params.require(:platform).permit(:name, :icon)
   end
