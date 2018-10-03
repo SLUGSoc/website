@@ -5,11 +5,11 @@
       <table class="table table-sm table-borderless mx-auto w-auto">
         <tr>
           <th class="text-center"><%= icon('fas', 'calendar') %></th>
-          <td><%= event.datetime.to_date.to_s(:short) %></td>
+          <td><%= event.dates %></td>
         </tr>
         <tr>
           <th class="text-center"><%= icon('fas', 'clock') %></th>
-          <td><%= event.datetime.strftime('%l.%M %p') %></td>
+          <td><%= event.times %></td>
         </tr>
         <tr>
           <th class="text-center"><%= icon('fas', 'map-pin') %></th>

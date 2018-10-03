@@ -53,3 +53,16 @@ en:
   releases:
     index:
       title: 'Admin - Releases - SLUGS - Sheffield University Gaming Society'
+  time:
+    formats:
+      day: '%a, %e %b'
+      day_24_hour_time: '%a, %e %b %H:%M'
+      day_12_hour_time: '%a, %e %b %I.%M%p'
+      day_with_year: '%a, %e %b %Y %H:%M'
+      day_12_hour_time_with_year: '%a, %e %b %Y %I.%M%p'
+      short: '%d/%m %H:%M'
+      short_12_hour_time: '%d/%m %I.%M%p'
+      short_with_year: '%d/%m %H:%M'
+      short_with_year_12_hour_time: '%d/%m %I.%M%p'
+      t_24_hour_time: '%H:%M'
+      t_12_hour_time: '%I.%M%p'

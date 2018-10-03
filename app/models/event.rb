@@ -12,6 +12,29 @@ class Event < ApplicationRecord
     "https://facebook.com/events/#{facebook_event_id}"
   end
 
+  def dates
+    dates = I18n.l(datetime, format: :day)
+    dates += " - #{I18n.l(end_datetime, format: :day)}" unless
+      multiple_day_event? || end_datetime.blank?
+    dates
+  end
+
+  def multiple_day_event?
+    datetime.to_date == end_datetime&.to_date
+  end
+
+  def times
+    times = I18n.l(datetime, format: :short_12_hour_time)
+    times += " - #{I18n.l(end_datetime, format: :short_12_hour_time)}" unless end_datetime.blank?
+    times
+  end
+
+  def datetimes(_time_format = :long_ordinal)
+    datetimes = I18n.l(datetime, format: :long)
+    datetimes += " - #{I18n.l(end_datetime, format: :long)}" unless end_datetime.blank?
+    datetimes
+  end
+
   def self.next_lan
     all_future.find { |event| !!(event.name =~ /LAN \d{2,3}/) }
   end
