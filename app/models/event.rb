@@ -3,7 +3,14 @@
 class Event < ApplicationRecord
   has_many :game_event_relations, dependent: :destroy
   has_many :games, through: :game_event_relations
+  validates :datetime, presence: true
+  validates :location, presence: true
+  validates :lan_number, numericality: { only_integer: true }, allow_nil: true
+  validates :name, presence: true
+  validates :description, presence: true
+  validate :end_after_start
   default_scope { order('datetime ASC, id ASC') }
+
   def self.all_future
     all.select { |event| event.datetime.future? }
   end
@@ -49,5 +56,11 @@ class Event < ApplicationRecord
       facebook_event_id: facebook_event['id'],
       ticket_link: facebook_event['ticket_uri']
     )
+  end
+
+  def end_after_start
+    false unless end_datetime
+    valid = datetime && end_datetime && end_datetime > datetime
+    errors[:datetime] << 'must be before end time' unless valid
   end
 end

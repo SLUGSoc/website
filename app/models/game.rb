@@ -5,4 +5,5 @@ class Game < ApplicationRecord
   has_many :events, through: :game_event_relations
   has_many :releases, dependent: :destroy
   has_many :platforms, through: :releases
+  validates :name, presence: true
 end
