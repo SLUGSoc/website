@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @server.game %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @server.port %>
+</p>
+
+<%= link_to 'Edit', edit_server_path(@server) %> |
+<%= link_to 'Back', servers_path %>

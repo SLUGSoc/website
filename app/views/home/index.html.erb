@@ -54,7 +54,6 @@
       <div class="text-center m-3 p-3 rounded" style="background-color: rgba(0, 0, 0, 0.7);">
         <h2>Socials</h2>
         <p>SLUGS gathers weekly for fun pick-up-and-play games and drinks. Head this way to learn which games you'll get to enjoy each week! We normally meet in Bar One at 6pm, moving on to Huttons Bar at 7.30pm.</p>
-        <%# TODO: Events table %>
         <%= link_to 'View Details', events_path, class: 'btn btn-secondary' %>
       </div>
     </div>
@@ -84,7 +83,16 @@
       <div class="text-center mx-auto my-3 p-3 rounded" style="background-color: rgba(0, 0, 0, 0.7);">
         <h2>Game Servers</h2>
         <p>We also host our own game server on sleipnir.slugsoc.co.uk. Connect to these ports to get started:</p>
-        <%# TODO: Game server table %>
+        <table class="table table-borderless w-auto mx-auto bg-light text-dark">
+          <tbody>
+            <% @servers.each do |server| %>
+              <tr>
+                <td class="text-center"><%= render server.game %></td>
+                <td class="text-left">sleipnir.slugsoc.co.uk:<%= server.port %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
