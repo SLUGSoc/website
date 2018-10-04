@@ -61,14 +61,38 @@
               <%= icon('fab', 'steam', class: 'fa-fw') %>
               Platforms
             <% end %>
-            <%= link_to 'Add Games to Events', game_event_relations_path, class: 'dropdown-item' %>
-            <%= link_to 'Add Games to Platforms', releases_path, class: 'dropdown-item' %>
-            <%= link_to 'Codes of Conduct', codes_path, class: 'dropdown-item' %>
-            <%= link_to 'All Rules', rules_path, class: 'dropdown-item' %>
-            <%= link_to 'Sponsors', sponsors_path, class: 'dropdown-item' %>
-            <%= link_to 'Commitee', members_path, class: 'dropdown-item' %>
-            <%= link_to 'Accounts', platform_accounts_path, class: 'dropdown-item' %>
-            <%= link_to 'Game Servers', servers_path, class: 'dropdown-item' %>
+            <%= link_to  game_event_relations_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'calendar', class: 'fa-fw') %>
+              Add Games to Events
+            <% end %>
+            <%= link_to  releases_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'gamepad', class: 'fa-fw') %>
+              Add Games to Platforms
+            <% end %>
+            <%= link_to  codes_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'book', class: 'fa-fw') %>
+              Codes of Conduct
+            <% end %>
+            <%= link_to  rules_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'book-open', class: 'fa-fw') %>
+              All Rules
+            <% end %>
+            <%= link_to  sponsors_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'hand-holding-usd', class: 'fa-fw') %>
+              Sponsors
+            <% end %>
+            <%= link_to  members_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'users', class: 'fa-fw') %>
+              Commitee
+            <% end %>
+            <%= link_to  platform_accounts_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'user-circle', class: 'fa-fw') %>
+              Accounts
+            <% end %>
+            <%= link_to  servers_path, class: 'dropdown-item' do %>
+              <%= icon('fas', 'server', class: 'fa-fw') %>
+              Game Servers
+            <% end %>
           </div>
         </li>
         <li class="nav-item mr-1">
