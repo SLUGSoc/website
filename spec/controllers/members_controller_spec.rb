@@ -77,19 +77,22 @@ RSpec.describe MembersController, type: :controller do
     context 'with valid params' do
       it 'creates a new Member' do
         expect do
-          post :create, params: { member: valid_attributes }, session: valid_session
+          post :create, params: { member: valid_attributes },
+                        session: valid_session
         end.to change(Member, :count).by(1)
       end
 
       it 'redirects to the created member' do
-        post :create, params: { member: valid_attributes }, session: valid_session
+        post :create, params: { member: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(Member.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { member: invalid_attributes }, session: valid_session
+        post :create, params: { member: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +106,16 @@ RSpec.describe MembersController, type: :controller do
 
       it 'updates the requested member' do
         member = Member.create! valid_attributes
-        put :update, params: { id: member.to_param, member: new_attributes }, session: valid_session
+        put :update, params: { id: member.to_param, member: new_attributes },
+                     session: valid_session
         member.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the member' do
         member = Member.create! valid_attributes
-        put :update, params: { id: member.to_param, member: valid_attributes }, session: valid_session
+        put :update, params: { id: member.to_param, member: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(member)
       end
     end
@@ -118,7 +123,9 @@ RSpec.describe MembersController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         member = Member.create! valid_attributes
-        put :update, params: { id: member.to_param, member: invalid_attributes }, session: valid_session
+        put :update, params: { id: member.to_param,
+                               member: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end

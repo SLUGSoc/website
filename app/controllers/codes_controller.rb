@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Allows users to create, rename, and add rules to a code of conduct.
 class CodesController < ApplicationController
   before_action :set_code, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -24,12 +25,18 @@ class CodesController < ApplicationController
 
   # POST /codes
   # POST /codes.json
+  # These controller methods are scaffolded to be like this by default - method
+  # length shouldn't be a concern as long as it doesn't grow much.
+  # rubocop:disable Metrics/MethodLength
   def create
     @code = Code.new(code_params)
 
     respond_to do |format|
       if @code.save
-        format.html { redirect_to @code, notice: 'Code was successfully created.' }
+        format.html do
+          redirect_to @code,
+                      notice: 'Code was successfully created.'
+        end
         format.json { render :show, status: :created, location: @code }
       else
         format.html { render :new }
@@ -43,7 +50,10 @@ class CodesController < ApplicationController
   def update
     respond_to do |format|
       if @code.update(code_params)
-        format.html { redirect_to @code, notice: 'Code was successfully updated.' }
+        format.html do
+          redirect_to @code,
+                      notice: 'Code was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @code }
       else
         format.html { render :edit }
@@ -57,10 +67,14 @@ class CodesController < ApplicationController
   def destroy
     @code.destroy
     respond_to do |format|
-      format.html { redirect_to codes_url, notice: 'Code was successfully destroyed.' }
+      format.html do
+        redirect_to codes_url,
+                    notice: 'Code was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 
@@ -69,7 +83,8 @@ class CodesController < ApplicationController
     @code = Code.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the whitelist
+  # through.
   def code_params
     params.require(:code).permit(:name)
   end

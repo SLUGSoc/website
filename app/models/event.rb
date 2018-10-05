@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# An Event represents an event that the society is either hosting or
+# collectively attending. It is linked to a Facebook event and the web location
+# at which one can buy tickets, and can be posted to other platforms using our
+# integrations.
 class Event < ApplicationRecord
   has_many :game_event_relations, dependent: :destroy
   has_many :games, through: :game_event_relations
@@ -32,18 +36,20 @@ class Event < ApplicationRecord
 
   def times
     times = I18n.l(datetime, format: :short_12_hour_time)
-    times += " - #{I18n.l(end_datetime, format: :short_12_hour_time)}" unless end_datetime.blank?
+    times += " - #{I18n.l(end_datetime, format: :short_12_hour_time)}" unless
+      end_datetime.blank?
     times
   end
 
   def datetimes(_time_format = :long_ordinal)
     datetimes = I18n.l(datetime, format: :long)
-    datetimes += " - #{I18n.l(end_datetime, format: :long)}" unless end_datetime.blank?
+    datetimes += " - #{I18n.l(end_datetime, format: :long)}" unless
+      end_datetime.blank?
     datetimes
   end
 
   def self.next_lan
-    all_future.find { |event| !!(event.name =~ /LAN \d{2,3}/) }
+    all_future.find { |event| event.name =~ /LAN \d{2,3}/ }
   end
 
   def self.new_from_facebook_event(facebook_event)

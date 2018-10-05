@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# Allows an admin user to record, edit and delete references to the game
+# servers we run
 class ServersController < ApplicationController
-  before_action :set_server, only: [:show, :edit, :update, :destroy]
+  before_action :set_server, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /servers
@@ -10,8 +14,7 @@ class ServersController < ApplicationController
 
   # GET /servers/1
   # GET /servers/1.json
-  def show
-  end
+  def show; end
 
   # GET /servers/new
   def new
@@ -19,21 +22,29 @@ class ServersController < ApplicationController
   end
 
   # GET /servers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /servers
   # POST /servers.json
+  # These controller methods are scaffolded to be like this by default - method
+  # length shouldn't be a concern as long as it doesn't grow much.
+  # rubocop:disable Metrics/MethodLength
   def create
     @server = Server.new(server_params)
 
     respond_to do |format|
       if @server.save
-        format.html { redirect_to @server, notice: 'Server was successfully created.' }
+        format.html do
+          redirect_to @server,
+                      notice: 'Server was successfully created.'
+        end
         format.json { render :show, status: :created, location: @server }
       else
         format.html { render :new }
-        format.json { render json: @server.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @server.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -43,11 +54,17 @@ class ServersController < ApplicationController
   def update
     respond_to do |format|
       if @server.update(server_params)
-        format.html { redirect_to @server, notice: 'Server was successfully updated.' }
+        format.html do
+          redirect_to @server,
+                      notice: 'Server was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @server }
       else
         format.html { render :edit }
-        format.json { render json: @server.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @server.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -57,19 +74,25 @@ class ServersController < ApplicationController
   def destroy
     @server.destroy
     respond_to do |format|
-      format.html { redirect_to servers_url, notice: 'Server was successfully destroyed.' }
+      format.html do
+        redirect_to servers_url,
+                    notice: 'Server was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_server
-      @server = Server.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def server_params
-      params.require(:server).permit(:game_id, :port)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_server
+    @server = Server.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the whitelist
+  # through.
+  def server_params
+    params.require(:server).permit(:game_id, :port)
+  end
 end

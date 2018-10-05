@@ -77,19 +77,22 @@ RSpec.describe SponsorsController, type: :controller do
     context 'with valid params' do
       it 'creates a new Sponsor' do
         expect do
-          post :create, params: { sponsor: valid_attributes }, session: valid_session
+          post :create, params: { sponsor: valid_attributes },
+                        session: valid_session
         end.to change(Sponsor, :count).by(1)
       end
 
       it 'redirects to the created sponsor' do
-        post :create, params: { sponsor: valid_attributes }, session: valid_session
+        post :create, params: { sponsor: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(Sponsor.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { sponsor: invalid_attributes }, session: valid_session
+        post :create, params: { sponsor: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +106,17 @@ RSpec.describe SponsorsController, type: :controller do
 
       it 'updates the requested sponsor' do
         sponsor = Sponsor.create! valid_attributes
-        put :update, params: { id: sponsor.to_param, sponsor: new_attributes }, session: valid_session
+        put :update, params: { id: sponsor.to_param, sponsor: new_attributes },
+                     session: valid_session
         sponsor.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the sponsor' do
         sponsor = Sponsor.create! valid_attributes
-        put :update, params: { id: sponsor.to_param, sponsor: valid_attributes }, session: valid_session
+        put :update, params: { id: sponsor.to_param,
+                               sponsor: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(sponsor)
       end
     end
@@ -118,7 +124,9 @@ RSpec.describe SponsorsController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         sponsor = Sponsor.create! valid_attributes
-        put :update, params: { id: sponsor.to_param, sponsor: invalid_attributes }, session: valid_session
+        put :update, params: { id: sponsor.to_param,
+                               sponsor: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end
@@ -128,7 +136,8 @@ RSpec.describe SponsorsController, type: :controller do
     it 'destroys the requested sponsor' do
       sponsor = Sponsor.create! valid_attributes
       expect do
-        delete :destroy, params: { id: sponsor.to_param }, session: valid_session
+        delete :destroy, params: { id: sponsor.to_param },
+                         session: valid_session
       end.to change(Sponsor, :count).by(-1)
     end
 

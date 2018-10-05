@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Allows admin users to create, view, update and delete sponsor records.
 class SponsorsController < ApplicationController
   before_action :set_sponsor, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -24,16 +25,25 @@ class SponsorsController < ApplicationController
 
   # POST /sponsors
   # POST /sponsors.json
+  # These controller methods are scaffolded to be like this by default - method
+  # length shouldn't be a concern as long as it doesn't grow much.
+  # rubocop:disable Metrics/MethodLength
   def create
     @sponsor = Sponsor.new(sponsor_params)
 
     respond_to do |format|
       if @sponsor.save
-        format.html { redirect_to @sponsor, notice: 'Sponsor was successfully created.' }
+        format.html do
+          redirect_to @sponsor,
+                      notice: 'Sponsor was successfully created.'
+        end
         format.json { render :show, status: :created, location: @sponsor }
       else
         format.html { render :new }
-        format.json { render json: @sponsor.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @sponsor.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -43,11 +53,17 @@ class SponsorsController < ApplicationController
   def update
     respond_to do |format|
       if @sponsor.update(sponsor_params)
-        format.html { redirect_to @sponsor, notice: 'Sponsor was successfully updated.' }
+        format.html do
+          redirect_to @sponsor,
+                      notice: 'Sponsor was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @sponsor }
       else
         format.html { render :edit }
-        format.json { render json: @sponsor.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @sponsor.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -57,10 +73,14 @@ class SponsorsController < ApplicationController
   def destroy
     @sponsor.destroy
     respond_to do |format|
-      format.html { redirect_to sponsors_url, notice: 'Sponsor was successfully destroyed.' }
+      format.html do
+        redirect_to sponsors_url,
+                    notice: 'Sponsor was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 
@@ -69,8 +89,10 @@ class SponsorsController < ApplicationController
     @sponsor = Sponsor.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
   def sponsor_params
-    params.require(:sponsor).permit(:name, :website, :blurb, :facebook, :twitter, :image_link)
+    params.require(:sponsor)
+          .permit(:name, :website, :blurb, :facebook, :twitter, :image_link)
   end
 end

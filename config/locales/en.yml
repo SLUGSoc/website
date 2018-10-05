@@ -35,8 +35,13 @@ en:
       event:
         datetime: "Start time"
         end_datetime: "End time"
-  hello: "Hello world"
   site_name: "SLUGS - Sheffield University Gaming Society"
+  discord_invite_code: '0qD2mZ0yB1K8HfOA'
+  facebook_username: 'SLUGSoc'
+  facebook_group_name: 'slugsoc'
+  twitter_username: 'SLUGSoc'
+  society_join_link: 'https://su.sheffield.ac.uk/groups/computer-gaming-society/join'
+  email_address: 'slugs@sheffield.ac.uk'
   home:
     events:
       title: "Events - SLUGS - Sheffield University Gaming Society"

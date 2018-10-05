@@ -77,7 +77,8 @@ RSpec.describe RulesController, type: :controller do
     context 'with valid params' do
       it 'creates a new Rule' do
         expect do
-          post :create, params: { rule: valid_attributes }, session: valid_session
+          post :create, params: { rule: valid_attributes },
+                        session: valid_session
         end.to change(Rule, :count).by(1)
       end
 
@@ -89,7 +90,8 @@ RSpec.describe RulesController, type: :controller do
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { rule: invalid_attributes }, session: valid_session
+        post :create, params: { rule: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +105,16 @@ RSpec.describe RulesController, type: :controller do
 
       it 'updates the requested rule' do
         rule = Rule.create! valid_attributes
-        put :update, params: { id: rule.to_param, rule: new_attributes }, session: valid_session
+        put :update, params: { id: rule.to_param, rule: new_attributes },
+                     session: valid_session
         rule.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the rule' do
         rule = Rule.create! valid_attributes
-        put :update, params: { id: rule.to_param, rule: valid_attributes }, session: valid_session
+        put :update, params: { id: rule.to_param, rule: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(rule)
       end
     end
@@ -118,7 +122,8 @@ RSpec.describe RulesController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         rule = Rule.create! valid_attributes
-        put :update, params: { id: rule.to_param, rule: invalid_attributes }, session: valid_session
+        put :update, params: { id: rule.to_param, rule: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end

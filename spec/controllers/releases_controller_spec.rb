@@ -77,19 +77,22 @@ RSpec.describe ReleasesController, type: :controller do
     context 'with valid params' do
       it 'creates a new Release' do
         expect do
-          post :create, params: { release: valid_attributes }, session: valid_session
+          post :create, params: { release: valid_attributes },
+                        session: valid_session
         end.to change(Release, :count).by(1)
       end
 
       it 'redirects to the created release' do
-        post :create, params: { release: valid_attributes }, session: valid_session
+        post :create, params: { release: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(Release.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { release: invalid_attributes }, session: valid_session
+        post :create, params: { release: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +106,17 @@ RSpec.describe ReleasesController, type: :controller do
 
       it 'updates the requested release' do
         release = Release.create! valid_attributes
-        put :update, params: { id: release.to_param, release: new_attributes }, session: valid_session
+        put :update, params: { id: release.to_param, release: new_attributes },
+                     session: valid_session
         release.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the release' do
         release = Release.create! valid_attributes
-        put :update, params: { id: release.to_param, release: valid_attributes }, session: valid_session
+        put :update, params: { id: release.to_param,
+                               release: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(release)
       end
     end
@@ -118,7 +124,9 @@ RSpec.describe ReleasesController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         release = Release.create! valid_attributes
-        put :update, params: { id: release.to_param, release: invalid_attributes }, session: valid_session
+        put :update, params: { id: release.to_param,
+                               release: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end
@@ -128,7 +136,8 @@ RSpec.describe ReleasesController, type: :controller do
     it 'destroys the requested release' do
       release = Release.create! valid_attributes
       expect do
-        delete :destroy, params: { id: release.to_param }, session: valid_session
+        delete :destroy, params: { id: release.to_param },
+                         session: valid_session
       end.to change(Release, :count).by(-1)
     end
 

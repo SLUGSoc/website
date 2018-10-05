@@ -18,4 +18,24 @@ module ApplicationHelper
 
     ''
   end
+
+  def discord_invite_link
+    "https://discord.gg/#{I18n.t :discord_invite_code}"
+  end
+
+  def facebook_page_link
+    "https://facebook.com/pg/#{I18n.t :facebook_username}"
+  end
+
+  def facebook_group_link
+    "https://www.facebook.com/groups/#{I18n.t :facebook_group_name}"
+  end
+
+  def twitter_page_link
+    "https://twitter.com/#{I18n.t :twitter_username}"
+  end
+
+  def email_address_link
+    "mailto:#{I18n.t :email_address}"
+  end
 end

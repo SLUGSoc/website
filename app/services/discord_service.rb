@@ -4,7 +4,11 @@
 module DiscordService
   class << self
     def event_to_markdown(event)
-      template = ERB.new(File.read(Rails.root.join('app', 'views', 'events', '_event.discord.erb')))
+      template = ERB.new(
+        File.read(
+          Rails.root.join('app', 'views', 'events', '_event.discord.erb')
+        )
+      )
       template.result(binding)
     end
 

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those in
+  # config/application.rb.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # In the development environment your application's code is reloaded on
@@ -30,7 +31,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Store uploaded files on the local file system (see config/storage.yml for options)
+  # Store uploaded files on the local file system (see config/storage.yml for
+  # options)
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.

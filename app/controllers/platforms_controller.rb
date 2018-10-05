@@ -26,6 +26,9 @@ class PlatformsController < ApplicationController
 
   # POST /platforms
   # POST /platforms.json
+  # These controller methods are scaffolded to be like this by default - method
+  # length shouldn't be a concern as long as it doesn't grow much.
+  # rubocop:disable Metrics/MethodLength
   def create
     @platform = Platform.new(platform_params)
 
@@ -78,6 +81,7 @@ class PlatformsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 

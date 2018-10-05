@@ -77,19 +77,22 @@ RSpec.describe EventsController, type: :controller do
     context 'with valid params' do
       it 'creates a new Event' do
         expect do
-          post :create, params: { event: valid_attributes }, session: valid_session
+          post :create, params: { event: valid_attributes },
+                        session: valid_session
         end.to change(Event, :count).by(1)
       end
 
       it 'redirects to the created event' do
-        post :create, params: { event: valid_attributes }, session: valid_session
+        post :create, params: { event: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(Event.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { event: invalid_attributes }, session: valid_session
+        post :create, params: { event: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +106,16 @@ RSpec.describe EventsController, type: :controller do
 
       it 'updates the requested event' do
         event = Event.create! valid_attributes
-        put :update, params: { id: event.to_param, event: new_attributes }, session: valid_session
+        put :update, params: { id: event.to_param, event: new_attributes },
+                     session: valid_session
         event.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the event' do
         event = Event.create! valid_attributes
-        put :update, params: { id: event.to_param, event: valid_attributes }, session: valid_session
+        put :update, params: { id: event.to_param, event: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(event)
       end
     end
@@ -118,7 +123,8 @@ RSpec.describe EventsController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         event = Event.create! valid_attributes
-        put :update, params: { id: event.to_param, event: invalid_attributes }, session: valid_session
+        put :update, params: { id: event.to_param, event: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end

@@ -53,7 +53,8 @@ RSpec.describe PlatformAccountsController, type: :controller do
   describe 'GET #show' do
     it 'returns a success response' do
       platform_account = PlatformAccount.create! valid_attributes
-      get :show, params: { id: platform_account.to_param }, session: valid_session
+      get :show, params: { id: platform_account.to_param },
+                 session: valid_session
       expect(response).to be_successful
     end
   end
@@ -68,7 +69,8 @@ RSpec.describe PlatformAccountsController, type: :controller do
   describe 'GET #edit' do
     it 'returns a success response' do
       platform_account = PlatformAccount.create! valid_attributes
-      get :edit, params: { id: platform_account.to_param }, session: valid_session
+      get :edit, params: { id: platform_account.to_param },
+                 session: valid_session
       expect(response).to be_successful
     end
   end
@@ -77,19 +79,22 @@ RSpec.describe PlatformAccountsController, type: :controller do
     context 'with valid params' do
       it 'creates a new PlatformAccount' do
         expect do
-          post :create, params: { platform_account: valid_attributes }, session: valid_session
+          post :create, params: { platform_account: valid_attributes },
+                        session: valid_session
         end.to change(PlatformAccount, :count).by(1)
       end
 
       it 'redirects to the created platform_account' do
-        post :create, params: { platform_account: valid_attributes }, session: valid_session
+        post :create, params: { platform_account: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(PlatformAccount.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { platform_account: invalid_attributes }, session: valid_session
+        post :create, params: { platform_account: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +108,18 @@ RSpec.describe PlatformAccountsController, type: :controller do
 
       it 'updates the requested platform_account' do
         platform_account = PlatformAccount.create! valid_attributes
-        put :update, params: { id: platform_account.to_param, platform_account: new_attributes }, session: valid_session
+        put :update, params: { id: platform_account.to_param,
+                               platform_account: new_attributes },
+                     session: valid_session
         platform_account.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the platform_account' do
         platform_account = PlatformAccount.create! valid_attributes
-        put :update, params: { id: platform_account.to_param, platform_account: valid_attributes }, session: valid_session
+        put :update, params: { id: platform_account.to_param,
+                               platform_account: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(platform_account)
       end
     end
@@ -118,7 +127,9 @@ RSpec.describe PlatformAccountsController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         platform_account = PlatformAccount.create! valid_attributes
-        put :update, params: { id: platform_account.to_param, platform_account: invalid_attributes }, session: valid_session
+        put :update, params: { id: platform_account.to_param,
+                               platform_account: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end
@@ -128,13 +139,15 @@ RSpec.describe PlatformAccountsController, type: :controller do
     it 'destroys the requested platform_account' do
       platform_account = PlatformAccount.create! valid_attributes
       expect do
-        delete :destroy, params: { id: platform_account.to_param }, session: valid_session
+        delete :destroy, params: { id: platform_account.to_param },
+                         session: valid_session
       end.to change(PlatformAccount, :count).by(-1)
     end
 
     it 'redirects to the platform_accounts list' do
       platform_account = PlatformAccount.create! valid_attributes
-      delete :destroy, params: { id: platform_account.to_param }, session: valid_session
+      delete :destroy, params: { id: platform_account.to_param },
+                       session: valid_session
       expect(response).to redirect_to(platform_accounts_url)
     end
   end

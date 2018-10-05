@@ -53,7 +53,8 @@ RSpec.describe GameEventRelationsController, type: :controller do
   describe 'GET #show' do
     it 'returns a success response' do
       game_event_relation = GameEventRelation.create! valid_attributes
-      get :show, params: { id: game_event_relation.to_param }, session: valid_session
+      get :show, params: { id: game_event_relation.to_param },
+                 session: valid_session
       expect(response).to be_successful
     end
   end
@@ -68,7 +69,8 @@ RSpec.describe GameEventRelationsController, type: :controller do
   describe 'GET #edit' do
     it 'returns a success response' do
       game_event_relation = GameEventRelation.create! valid_attributes
-      get :edit, params: { id: game_event_relation.to_param }, session: valid_session
+      get :edit, params: { id: game_event_relation.to_param },
+                 session: valid_session
       expect(response).to be_successful
     end
   end
@@ -77,19 +79,22 @@ RSpec.describe GameEventRelationsController, type: :controller do
     context 'with valid params' do
       it 'creates a new GameEventRelation' do
         expect do
-          post :create, params: { game_event_relation: valid_attributes }, session: valid_session
+          post :create, params: { game_event_relation: valid_attributes },
+                        session: valid_session
         end.to change(GameEventRelation, :count).by(1)
       end
 
       it 'redirects to the created game_event_relation' do
-        post :create, params: { game_event_relation: valid_attributes }, session: valid_session
+        post :create, params: { game_event_relation: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(GameEventRelation.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { game_event_relation: invalid_attributes }, session: valid_session
+        post :create, params: { game_event_relation: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +108,18 @@ RSpec.describe GameEventRelationsController, type: :controller do
 
       it 'updates the requested game_event_relation' do
         game_event_relation = GameEventRelation.create! valid_attributes
-        put :update, params: { id: game_event_relation.to_param, game_event_relation: new_attributes }, session: valid_session
+        put :update, params: { id: game_event_relation.to_param,
+                               game_event_relation: new_attributes },
+                     session: valid_session
         game_event_relation.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the game_event_relation' do
         game_event_relation = GameEventRelation.create! valid_attributes
-        put :update, params: { id: game_event_relation.to_param, game_event_relation: valid_attributes }, session: valid_session
+        put :update, params: { id: game_event_relation.to_param,
+                               game_event_relation: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(game_event_relation)
       end
     end
@@ -118,7 +127,9 @@ RSpec.describe GameEventRelationsController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         game_event_relation = GameEventRelation.create! valid_attributes
-        put :update, params: { id: game_event_relation.to_param, game_event_relation: invalid_attributes }, session: valid_session
+        put :update, params: { id: game_event_relation.to_param,
+                               game_event_relation: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end
@@ -128,13 +139,15 @@ RSpec.describe GameEventRelationsController, type: :controller do
     it 'destroys the requested game_event_relation' do
       game_event_relation = GameEventRelation.create! valid_attributes
       expect do
-        delete :destroy, params: { id: game_event_relation.to_param }, session: valid_session
+        delete :destroy, params: { id: game_event_relation.to_param },
+                         session: valid_session
       end.to change(GameEventRelation, :count).by(-1)
     end
 
     it 'redirects to the game_event_relations list' do
       game_event_relation = GameEventRelation.create! valid_attributes
-      delete :destroy, params: { id: game_event_relation.to_param }, session: valid_session
+      delete :destroy, params: { id: game_event_relation.to_param },
+                       session: valid_session
       expect(response).to redirect_to(game_event_relations_url)
     end
   end

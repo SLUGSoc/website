@@ -77,19 +77,22 @@ RSpec.describe GamesController, type: :controller do
     context 'with valid params' do
       it 'creates a new Game' do
         expect do
-          post :create, params: { game: valid_attributes }, session: valid_session
+          post :create, params: { game: valid_attributes },
+                        session: valid_session
         end.to change(Game, :count).by(1)
       end
 
       it 'redirects to the created game' do
-        post :create, params: { game: valid_attributes }, session: valid_session
+        post :create, params: { game: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(Game.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { game: invalid_attributes }, session: valid_session
+        post :create, params: { game: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +106,16 @@ RSpec.describe GamesController, type: :controller do
 
       it 'updates the requested game' do
         game = Game.create! valid_attributes
-        put :update, params: { id: game.to_param, game: new_attributes }, session: valid_session
+        put :update, params: { id: game.to_param, game: new_attributes },
+                     session: valid_session
         game.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the game' do
         game = Game.create! valid_attributes
-        put :update, params: { id: game.to_param, game: valid_attributes }, session: valid_session
+        put :update, params: { id: game.to_param, game: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(game)
       end
     end
@@ -118,7 +123,8 @@ RSpec.describe GamesController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         game = Game.create! valid_attributes
-        put :update, params: { id: game.to_param, game: invalid_attributes }, session: valid_session
+        put :update, params: { id: game.to_param, game: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end

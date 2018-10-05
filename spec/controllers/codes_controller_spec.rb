@@ -77,19 +77,22 @@ RSpec.describe CodesController, type: :controller do
     context 'with valid params' do
       it 'creates a new Code' do
         expect do
-          post :create, params: { code: valid_attributes }, session: valid_session
+          post :create, params: { code: valid_attributes },
+                        session: valid_session
         end.to change(Code, :count).by(1)
       end
 
       it 'redirects to the created code' do
-        post :create, params: { code: valid_attributes }, session: valid_session
+        post :create, params: { code: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(Code.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { code: invalid_attributes }, session: valid_session
+        post :create, params: { code: invalid_attributes },
+                      session: valid_session
         expect(response).to be_successful
       end
     end
@@ -103,14 +106,16 @@ RSpec.describe CodesController, type: :controller do
 
       it 'updates the requested code' do
         code = Code.create! valid_attributes
-        put :update, params: { id: code.to_param, code: new_attributes }, session: valid_session
+        put :update, params: { id: code.to_param, code: new_attributes },
+                     session: valid_session
         code.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the code' do
         code = Code.create! valid_attributes
-        put :update, params: { id: code.to_param, code: valid_attributes }, session: valid_session
+        put :update, params: { id: code.to_param, code: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(code)
       end
     end
@@ -118,7 +123,8 @@ RSpec.describe CodesController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         code = Code.create! valid_attributes
-        put :update, params: { id: code.to_param, code: invalid_attributes }, session: valid_session
+        put :update, params: { id: code.to_param, code: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end

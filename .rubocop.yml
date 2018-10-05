@@ -1,3 +1,14 @@
 AllCops:
   Exclude:
     - '**/*.jbuilder'
+    - 'db/**/*'
+    - 'spec/views/**/*' # temporary
+    - 'bin/*'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/**/*'
+Style/Documentation:
+  Exclude:
+    - 'app/helpers/*'
+    - 'app/controllers/application_controller.rb'
+    - 'app/models/application_record.rb'

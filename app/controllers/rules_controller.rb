@@ -27,12 +27,18 @@ class RulesController < ApplicationController
 
   # POST /rules
   # POST /rules.json
+  # These controller methods are scaffolded to be like this by default - method
+  # length shouldn't be a concern as long as it doesn't grow much.
+  # rubocop:disable Metrics/MethodLength
   def create
     @rule = Rule.new(rule_params)
 
     respond_to do |format|
       if @rule.save
-        format.html { redirect_to @rule, notice: 'Rule was successfully created.' }
+        format.html do
+          redirect_to @rule,
+                      notice: 'Rule was successfully created.'
+        end
         format.json { render :show, status: :created, location: @rule }
       else
         format.html { render :new }
@@ -46,7 +52,10 @@ class RulesController < ApplicationController
   def update
     respond_to do |format|
       if @rule.update(rule_params)
-        format.html { redirect_to @rule, notice: 'Rule was successfully updated.' }
+        format.html do
+          redirect_to @rule,
+                      notice: 'Rule was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @rule }
       else
         format.html { render :edit }
@@ -60,10 +69,14 @@ class RulesController < ApplicationController
   def destroy
     @rule.destroy
     respond_to do |format|
-      format.html { redirect_to rules_url, notice: 'Rule was successfully destroyed.' }
+      format.html do
+        redirect_to rules_url,
+                    notice: 'Rule was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 
@@ -72,7 +85,8 @@ class RulesController < ApplicationController
     @rule = Rule.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the whitelist
+  # through.
   def rule_params
     params.require(:rule).permit(:code_id, :summary, :full, :icon)
   end

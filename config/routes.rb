@@ -15,10 +15,11 @@ Rails.application.routes.draw do
     resources :servers
     # Some hacky stuff here to allow /admin/events/#{id} while having the rest
     # on #{events}
-    resources :events, except: %i[show update destroy], path_names: {new: 'new(/:facebook_event_id)' }
+    resources :events, except: %i[show update destroy],
+                       path_names: { new: 'new(/:facebook_event_id)' }
   end
 
-  patch    'events/:id' => 'events#update'
+  patch 'events/:id' => 'events#update'
   delete 'events/:id' => 'events#destroy'
   get    'events/:id' => 'events#show', :as => 'event'
 
@@ -26,8 +27,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'committee', to: 'home#committee'
   get 'lan', to: 'home#lan'
-  get 'events', to: 'home#events', :as => 'upcoming_events'
+  get 'events', to: 'home#events', as: 'upcoming_events'
   get 'sign_up', to: 'home#sign_up'
   get 'contact_us', to: 'home#contact_us'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # For details on the DSL available within this file,
+  # see http://guides.rubyonrails.org/routing.html
 end
