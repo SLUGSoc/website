@@ -1,40 +1,30 @@
 <div class="card text-dark">
-  <div class="d-flex flex-row">
-    <div class="card-body w-50">
-      <h3 class="text-center"><%= event.name %></h3>
-      <table class="table table-sm table-borderless mx-auto w-auto">
-        <tr>
-          <th class="text-center"><%= icon('fas', 'calendar') %></th>
-          <td><%= event.dates %></td>
-        </tr>
-        <tr>
-          <th class="text-center"><%= icon('fas', 'clock') %></th>
-          <td><%= event.times %></td>
-        </tr>
-        <tr>
-          <th class="text-center"><%= icon('fas', 'map-pin') %></th>
-          <td><%= event.location %></td>
-        </tr>
-        <tr>
-          <td colspan="2" class="text-center"><%= link_to 'View Event', event, class: 'btn btn-secondary' %></td>
-        </tr>
-      </table>
+  <div class="card-header">
+    <%= event.datetimes %>
+  </div>
+  <div class="card-body row no-gutters">
+    <div class="col-md-6">
+      <h5 class="card-title"><%= event.name %></h5>
+      <p class="card-text"><%= event.description.truncate(100) %></p>
+      <%= link_to 'View Event', event, class: 'btn btn-secondary' %>
     </div>
-    <!-- <%= image_tag event.image_link if event.image_link %> -->
-    <div class="w-50" style="height: inherit; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url(<%= asset_path event.image_link %>); background-position: center center; background-size: cover;"></div>
+    <div class="col-md-6">
+      <div class="h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url(<%= asset_path event.image_link %>); background-position: center center; background-size: cover; min-height: 200px;"></div>
+    </div>
   </div>
   <div class="card-footer row no-gutters p-0 text-light text-center">
-    <% unless event.facebook_event_id.blank? %>
-      <%= link_to event.facebook_event_link, class: "col bg-facebook" do %>
-          <%= icon('fab', 'facebook') %> View on Facebook
+      <% unless event.facebook_event_id.blank? %>
+        <%= link_to event.facebook_event_link, class: "col bg-facebook" do %>
+            <%= icon('fab', 'facebook') %> View on Facebook
+        <% end %>
       <% end %>
-    <% end %>
-    <% unless event.ticket_link.blank? %>
-      <%= link_to event.ticket_link, class: "col bg-secondary" do %>
-        <div class="col bg-secondary">
-            <%= icon('fas', 'ticket-alt') %> Buy Ticket
-        </div>
+      <% unless event.ticket_link.blank? %>
+        <%= link_to event.ticket_link, class: "col bg-secondary" do %>
+          <div class="col bg-secondary">
+              <%= icon('fas', 'ticket-alt') %> Buy Ticket
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 </div>
+
