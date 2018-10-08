@@ -17,7 +17,7 @@ class HomeController < ApplicationController
   end
 
   def events
-    @events ||= Event.all_future
+    @events ||= Event.all_future.take(3)
   end
 
   def sign_up; end
