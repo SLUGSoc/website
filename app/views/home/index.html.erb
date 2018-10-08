@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="container my-auto">
-    <% if @events.count == 0 %>
+    <% if @events.blank? %>
       <%= image_tag 'noevents.gif', class: 'w-100', style: 'filter: blur(1px) drop-shadow(1px 1px 1px black) grayscale(100%); max-height: 200px; width: auto; object-fit: contain;'%>
       <h4 class="text-center">No one's around to help.</h4>
       <p class="text-center">We don't have any games listed right now. Check back soon for more details!</p>
