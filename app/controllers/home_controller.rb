@@ -4,6 +4,7 @@
 # publicly-facing pages and renders them.
 class HomeController < ApplicationController
   def index
+    events
     sponsors
     upcoming_events
     servers
