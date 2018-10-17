@@ -16,10 +16,10 @@ conduct for the society and LANs, and more.
 
 First and most importantly, **reset the secret key base**. `config/credentials.yml.enc` is in the repository and, if left unchanged, this may leave the system vulnerable.
 
-Copy the output of `rails secret` and run `rails credentials:edit`. Reset the existing `secret_key_base` to this new value, save, and exit.
+Remove the credentials file above and run `docker-compose run --rm -e EDITOR="vi" web rails credentials:edit`. Exit by pressing `:` and `q` in sequence to create the new credentials file and associated master key.
 
 Create [Twitter](https://apps.twitter.com/) and [Facebook](https://developers.facebook.com)  developer apps using those services'
-developer sites. They should give you the following credentials, which you should set to these environment variables:
+developer sites. They should give you the following credentials, which you should set to these environment variables in `.env`:
 
 ```
 TWITTER_CONSUMER_KEY
@@ -31,6 +31,8 @@ FACEBOOK_PAGE_ID
 ```
 
 You will also want to create a webhook for your Discord server. You can do this under Server Settings > Webhooks if you have the correct permissions. Set the environment variable `DISCORD_WEBHOOK_URL` to this URL.
+
+You will also want to define the environment you're running the site in as `RAILS_ENV`, either to `development` or `production`.
 
 Run `docker-compose run --rm web rails db:setup` in the directory to seed the site database with the default data. **This only needs to be done on the first run.**
 
@@ -162,6 +164,8 @@ Add a Committee Member to the SLUGS site and they'll be visible at the [committe
 Keep this informal, but grammatically correct. Don't include anything vulgar or offensive.
 
 Other society members should not edit or remove others' pages without consent. *An update will come to the site that will grant each committee member full ownership of their own page.*
+
+When adding images, we'll want these to be hosted from the site - send one to a tech, and they'll add it to the site for you.
 
 #### [Accounts](https://slugsoc.co.uk/admin/accounts)
 
