@@ -38,4 +38,8 @@ module ApplicationHelper
   def email_address_link
     "mailto:#{I18n.t :email_address}"
   end
+
+  def society_join_link
+    I18n.t :society_join_link
+  end
 end
