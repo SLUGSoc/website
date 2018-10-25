@@ -16,7 +16,7 @@ conduct for the society and LANs, and more.
 
 First and most importantly, **reset the secret key base**. `config/credentials.yml.enc` is in the repository and, if left unchanged, this may leave the system vulnerable.
 
-Remove the credentials file above and run `docker-compose run --rm -e EDITOR="vi" web rails credentials:edit`. Exit by pressing `:` and `q` in sequence to create the new credentials file and associated master key.
+Remove the credentials file above and run `docker-compose run --rm -e EDITOR="vi" web rails credentials:edit`. You may need to add a blank `.env` file in the root first. Exit by pressing `:` and `q` in sequence to create the new credentials file and associated master key.
 
 Create [Twitter](https://apps.twitter.com/) and [Facebook](https://developers.facebook.com)  developer apps using those services'
 developer sites. They should give you the following credentials, which you should set to these environment variables in `.env`:
@@ -39,6 +39,8 @@ Run `docker-compose run --rm web rails db:setup` in the directory to seed the si
 Run `docker-compose up -d` in the directory to expose the site on port 3000 of your local machine.
 
 You'll then be able to access the site at localhost:3000.
+
+To create the first user, run `docker-compose run --rm web rails c`. When you get a prompt like `irb(main):001:0>`, run `User.create(email: '<your-email>', password: '<your-password>')`. You'll then be able to log in to the site.
 
 To update the site, run `git pull` to retrieve the latest code from the [master branch](https://github.com/SLUGSoc/website/tree/master).
 
